@@ -1,6 +1,17 @@
+# oh-my-zsh
+  # Path to your oh-my-zsh installation.
+  export ZSH=$HOME/dotfiles/zsh/plugins/oh-my-zsh
+
+  # Set name of the theme to load.
+  # Look in ~/.oh-my-zsh/themes/
+  # Optionally, if you set this to "random", it'll load a random theme each
+  # time that oh-my-zsh is loaded.
+  ZSH_THEME="random"
+
+
 # Vars
 	HISTFILE=~/.zsh_history
-	SAVEHIST=1000 
+	SAVEHIST=100000
 	setopt inc_append_history # To save every command before it is executed 
 	setopt share_history # setopt inc_append_history
 
@@ -9,12 +20,21 @@
 # Aliases
 	alias v="vim -p"
 	mkdir -p /tmp/log
+        alias "..=cd .."
+        if [ /snap/bin/kubectl ]; then source <(kubectl completion zsh); fi
+        #alias "k=kubectl"
+        alias "ki=kubectl -n integration"
+
 	
 	# This is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
 	# alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
 
 # Settings
 	export VISUAL=vim
+        export EDITOR=$VISUAL
+        
+        export PATH=/usr/bin:$PATH
+        export PATH=~/.local/bin:$PATH
 
 source ~/dotfiles/zsh/plugins/fixls.zsh
 
@@ -48,6 +68,14 @@ autoload -U compinit
 
 plugins=(
 	docker
+        aws
+        git
+        tmux
+        history
+        zsh-autosuggestions
+        terraform
+        kubectl # NOT WORKING, PROBABLY PATH TO PLUGIN NEEDS TO BE ADDED BELOW
+        encode64
 )
 
 for plugin ($plugins); do
@@ -62,7 +90,9 @@ source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
 source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/keybindings.sh
+source ~/dotfiles/zsh/keybindings.sh # SHORTCUTS IN THIS FILE ARE NOT WORKING SINCE oh-my-zsh.sh has been added here
+source ~/.local/bin/aws_zsh_completer.sh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/oh-my-zsh.sh
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
@@ -78,5 +108,6 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
-source ~/dotfiles/zsh/prompt.sh
+# this file will set the custom theme which can't be changed by the theme setting 
+# source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
