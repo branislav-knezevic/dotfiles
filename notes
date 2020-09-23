@@ -1,0 +1,14 @@
+zsh
+	create readme file with all aliases
+	readme for vim plugins and shortcuts
+tmux
+	create preset in tmux to create a multi pane
+  powerline theme tmux
+vim
+	vim create new vimrc as a combination of the two existing
+	powerline or airline theme for vim
+	create shortucts for vim
+other
+	Lastpass install and configure alias
+	add installation of fuzzy finder to installation 
+		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fz

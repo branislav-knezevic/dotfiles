@@ -1,131 +1,365 @@
-" Make sure that plugin manager is installed
-	if empty(glob('~/.vim/autoload/plug.vim'))
-	  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-	    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif	
+" The following configuration is used by  BK
 
-" Plugin install
-	call plug#begin('~/.vim/autoload')
+" Plugins {{{
+   " Make sure that plugin manager is installed and loaded
+   if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+   endif
 
-	"Plug 'phanviet/vim-monokai-pro'
-	Plug 'doums/darcula'
-	Plug 'sheerun/vim-polyglot'
+   "The following plugins will be installed
+   call plug#begin('~/.vim/autoload')
 
-	call plug#end()
+   " Coloschemes
+   Plug 'doums/darcula'
+   " Plug 'phanviet/vim-monokai-pro'
+   " Plug 'joshdick/onedark.vim'
 
-" General Vim settings
-        set background=dark
-	set t_Co=256
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " This is only necessary if you use 'set termguicolors'.
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " This is only necessary if you use 'set termguicolors'.
-	set termguicolors
-	colorscheme darcula
+   " yaml syntax
+   Plug 'mrk21/yaml-vim'
+   "Plug 'stephpy/vim-yaml'
 
+   " Syntax
+   Plug 'sheerun/vim-polyglot'
 
-	syntax on             " enable code syntax
-	let mapleader=","      
-	set autoindent        " Auto-indent new lines
-        set smartindent       " Enable smart indent
-        set smarttab          " Enable smart tab
-	set tabstop=2         " Not sure what this does
-	set shiftwidth=2      " Number of auto-indent spaces
-        set expandtab         " Use spaces instead of tabs
-	set dir=/tmp/
-	set relativenumber    " Use relative line numbers for easier navigation
-	set number            " Show the absolute line number of the current line
-        set linebreak         " Break lines at work (requires Wrap lines)
-        set showbreak=+++     " Wrap broken lines prefix
-        set showmatch         " Highlight matching braces
-        set visualbell        " Use visual bell (no beeping)
+   " integrate vim with git
+   Plug 'tpope/fugitive'
 
-	autocmd Filetype html setlocal sw=2 expandtab
-	autocmd Filetype javascript setlocal sw=4 expandtab
+   " Visual
+   Plug 'preservim/nerdtree'
+   " LOAD POWERLINE OR AIRLINE PLUGIN
+   Plug 'vim-airline/vim-airline'
+   Plug 'vim-airline/vim-airline-themes'
 
-	set hlsearch          " Highlight all search results
-        set smartcase         " Use smartcase search
-        set ignorecase        " Always ignore-case when doing search
-        set incsearch         " Searches for strings incrementally
-	nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
-	nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
-	nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>
+   " better terminal integration
+   " substitute, search, and abbreviate multiple variants of a word
+   Plug 'tpope/vim-abolish'
 
-	nnoremap n nzzzv
-	nnoremap N Nzzzv
+   " Mark indentation
+   Plug 'Yggdroot/indentLine'
 
-	nnoremap H 0
-	nnoremap L $
-	nnoremap J G
-	nnoremap K gg
+   " easy commenting motions
+   Plug 'tpope/vim-commentary'
 
-	map <tab> %
+   " mappings which are simply short normal mode aliases for commonly used ex commands
+   Plug 'tpope/vim-unimpaired'
 
-	set backspace=indent,eol,start
+   " endings for html, xml, etc. - ehances surround
+   "Plug 'tpope/vim-ragtag'
 
-	nnoremap <Space> za
-	nnoremap <leader>z zMzvzz
+   " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
+   Plug 'tpope/vim-surround'
 
-	nnoremap vv 0v$
+   " tmux integration for vim
+   Plug 'benmills/vimux'
 
-	set listchars=tab:\|\ 
-	nnoremap <leader><tab> :set list!<cr>
-	set pastetoggle=<F2>
-	"set mouse=a
-	set incsearch
-        set path+=**          " enable recursive search for file opening within vim
+   " enables repeating other supported plugins with the . command
+   Plug 'tpope/vim-repeat'
 
-" Language Specific
-	" Tabs
-		so ~/dotfiles/vim/sleuth.vim
+   " .editorconfig support
+   Plug 'editorconfig/editorconfig-vim'
 
-	" Typescript
-		autocmd BufNewFile,BufRead *.ts set syntax=javascript
-		autocmd BufNewFile,BufRead *.tsx set syntax=javascript
+   " single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
+   Plug 'AndrewRadev/splitjoin.vim'
 
-	" Markup
-		inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
+   " add end, endif, etc. automatically
+   Plug 'tpope/vim-endwise'
 
+   " detect indent style (tabs vs. spaces)
+   Plug 'tpope/vim-sleuth'
 
-" File and Window Management 
-	inoremap <leader>w <Esc>:w<CR>
-	nnoremap <leader>w :w<CR>
+   " copy text from vim to system clipboard
+   Plug 'christoomey/vim-system-copy'
 
-	inoremap <leader>q <ESC>:q<CR>
-	nnoremap <leader>q :q<CR>
+   " NERDTree {{{
+      Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+      Plug 'Xuyuanp/nerdtree-git-plugin'
+      Plug 'ryanoasis/vim-devicons'
+      Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+      let g:WebDevIconsOS = 'Darwin'
+      let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+      let g:DevIconsEnableFoldersOpenClose = 1
+      let g:DevIconsEnableFolderExtensionPatternMatching = 1
+      let NERDTreeDirArrowExpandable = "\u00a0" " make arrows invisible
+      let NERDTreeDirArrowCollapsible = "\u00a0" " make arrows invisible
+      let NERDTreeNodeDelimiter = "\u263a" " smiley face
 
-	inoremap <leader>x <ESC>:x<CR>
-	nnoremap <leader>x :x<CR>
+      augroup nerdtree
+         autocmd!
+         autocmd FileType nerdtree setlocal nolist " turn off whitespace characters
+         autocmd FileType nerdtree setlocal nocursorline " turn off line highlighting for performance
+      augroup END
 
-	nnoremap <leader>e :Ex<CR>
-	nnoremap <leader>t :tabnew<CR>:Ex<CR>
-	nnoremap <leader>v :vsplit<CR>:w<CR>:Ex<CR>
-	nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
+      " Toggle NERDTree
+      function! ToggleNerdTree()
+         if @% != "" && @% !~ "Startify" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
+            :NERDTreeFind
+         else
+            :NERDTreeToggle
+         endif
+      endfunction
+      " toggle nerd tree
+      nmap <silent> <leader>n :call ToggleNerdTree()<cr>
+      " find the current file in nerdtree without needing to reload the drawer
+      nmap <silent> <leader>y :NERDTreeFind<cr>
 
-" Return to the same line you left off at
-	augroup line_return
-		au!
-		au BufReadPost *
-			\ if line("'\"") > 0 && line("'\"") <= line("$") |
-			\	execute 'normal! g`"zvzz' |
-			\ endif
-	augroup END
+      let NERDTreeShowHidden=1
+      " let NERDTreeDirArrowExpandable = '▷'
+      " let NERDTreeDirArrowCollapsible = '▼'
+      let g:NERDTreeIndicatorMapCustom = {
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
+   " }}}
 
-" Auto load
-	" Triger `autoread` when files changes on disk
-	" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
-	" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
-	autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-	set autoread 
-	" Notification after file change
-	" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-	autocmd FileChangedShellPost *
-	  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+   " FZF {{{
+      Plug '/usr/local/opt/fzf'
+      Plug 'junegunn/fzf.vim'
+      let g:fzf_layout = { 'down': '~25%' }
 
-" Future stuff
-	"Swap line
-	"Insert blank below and above
+      if isdirectory(".git")
+         " if in a git project, use :GFiles
+         nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
+      else
+         " otherwise, use :FZF
+         nmap <silent> <leader>t :FZF<cr>
+      endif
 
-" Fix for: https://github.com/fatih/vim-go/issues/1509
+      nmap <silent> <leader>s :GFiles?<cr>
 
-filetype plugin indent on
+      nmap <silent> <leader>r :Buffers<cr>
+      nmap <silent> <leader>e :FZF<cr>
+      nmap <leader><tab> <plug>(fzf-maps-n)
+      xmap <leader><tab> <plug>(fzf-maps-x)
+      omap <leader><tab> <plug>(fzf-maps-o)
 
+      " Insert mode completion
+      imap <c-x><c-k> <plug>(fzf-complete-word)
+      imap <c-x><c-f> <plug>(fzf-complete-path)
+      imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+      imap <c-x><c-l> <plug>(fzf-complete-line)
+
+      nnoremap <silent> <Leader>C :call fzf#run({
+      \   'source':
+      \     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+      \         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+      \   'sink':    'colo',
+      \   'options': '+m',
+      \   'left':    30
+      \ })<CR>
+
+      command! FZFMru call fzf#run({
+      \  'source':  v:oldfiles,
+      \  'sink':    'e',
+      \  'options': '-m -x +s',
+      \  'down':    '40%'})
+
+      command! -bang -nargs=* Find call fzf#vim#grep(
+         \ 'rg --column --line-number --no-heading --follow --color=always '.<q-args>, 1,
+         \ <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
+      command! -bang -nargs=? -complete=dir Files
+         \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+      command! -bang -nargs=? -complete=dir GitFiles
+         \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+   " }}}
+
+   " JSON {{{
+      Plug 'elzr/vim-json', { 'for': 'json' }
+      let g:vim_json_syntax_conceal = 0
+   " }}}
+
+   " Dockerfile syntax
+   Plug 'ekalinin/Dockerfile.vim'
+
+   call plug#end()
+" }}}
+
+" General {{{
+   syntax on " enable code syntax
+
+   " Abbreviations
+   abbr funciton function
+   abbr teh the
+   abbr tempalte template
+   abbr fitler filter
+   abbr cosnt const
+   abbr attribtue attribute
+   abbr attribuet attribute
+
+   set autoread " detect when a file is changed
+
+   set history=1000 " change history to 1000
+   set textwidth=120
+
+   set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+   set backspace=indent,eol,start " make backspace behave in a sane manner
+   set clipboard=unnamed
+
+   " Searching
+   set ignorecase " case insensitive searching
+   set smartcase " case-sensitive if expresson contains a capital letter
+   set hlsearch " highlight search results
+   set incsearch " set incremental search, like modern browsers
+   set nolazyredraw " don't redraw while executing macros
+
+   set magic " Set magic on, for regex
+
+   " error bells
+   set noerrorbells
+   set visualbell
+   set t_vb=
+   set tm=500
+
+" }}}
+
+" Appearance {{{
+   set number " show line numbers
+   set relativenumber " show relative numbers for easier movement between the lines
+   set wrap " turn on line wrapping
+   set wrapmargin=8 " wrap lines when coming within n characters from side
+   set linebreak " set soft wrapping
+   set showbreak=+++ " wrap broken lines with previh
+   set autoindent " automatically set indent of new line
+   set ttyfast " faster redrawing
+   set laststatus=2 " show the status line all the time
+   set so=7 " set 7 lines to the cursors - when moving vertical
+   set wildmenu " enhanced command line completion
+   set hidden " current buffer can be put into background
+   set showcmd " show incomplete commands
+   set noshowmode " don't show which mode disabled for PowerLine
+   set wildmode=list:longest " complete files like a shell
+   set shell=$SHELL
+   set cmdheight=1 " command bar height
+   set title " set terminal title
+   set showmatch " show matching braces
+   set mat=2 " how many tenths of a second to blink
+   set updatetime=300
+   set signcolumn=yes
+   set shortmess+=c
+
+   " Tab control
+   so ~/dotfiles/vim/sleuth.vim
+   "set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+   set tabstop=2 " the visible width of tabs
+   set softtabstop=0 " edit as if the tabs are 4 characters wide
+   set shiftwidth=2 " number of spaces to use for indent and unindent
+   set shiftround " round indent to a multiple of 'shiftwidth'
+   set expandtab " expand tabs to space
+
+   " code folding settings
+   set foldmethod=syntax " fold based on indent
+   set foldlevelstart=99
+   set foldnestmax=10 " deepest fold is 10 levels
+   set nofoldenable " don't fold by default
+   set foldlevel=1
+
+   " toggle invisible characters
+   "set list
+   "set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+   "set showbreak=↪
+
+   set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+
+   if &term =~ '256color'
+	    " disable background color erase
+	    set t_ut=
+   endif
+
+   " enable 24 bit color support if supported
+   if (has("termguicolors"))
+      if (!(has("nvim")))
+	 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+      endif
+      set termguicolors
+   endif
+
+   " highlight conflicts
+   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+   set runtimepath^=~/.vim/bundle/ctrlp.vim " Use ctrlp plugin which needs to be downloaded from git and saved to ~/.vim/bundle
+
+" }}}
+
+" Key mappings {{{
+   " set the map leader for more key combos
+   let mapleader = ','
+
+   " remap esc
+   inoremap jk <esc>
+
+   " ctrl-l to clear search highlighting
+   nnoremap <space> :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
+
+   " ctll-c to clear line numbers
+   nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
+
+   " ctrl-n to show line number and relativeline number
+   nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>¬
+
+   " Easier line movement
+   nnoremap H 0
+   nnoremap L $
+   nnoremap J G
+   nnoremap K gg
+   " moving up and down work as you would expect
+   nnoremap <silent> j gj
+   nnoremap <silent> k gk
+   nnoremap <silent> ^ g^
+   nnoremap <silent> $ g$
+
+   " select whole line
+   nnoremap vv 0v$
+
+   " set paste toggle
+   set pastetoggle=<leader>v
+
+   " set list
+   nnoremap <leader>l :set list!<cr>
+
+   " File and Window Mnagement
+   inoremap <leader>w <Esc>:w<CR>
+   nnoremap <leader>w :w<CR>
+   nnoremap <leader>, :w<CR>
+
+   inoremap <leader>q <ESC>:q<CR>
+   nnoremap <leader>q :q<CR>
+
+   inoremap <leader>x <ESC>:x<CR>
+   nnoremap <leader>x :x<CR>
+
+   nnoremap <leader>t :tabnew<CR> 
+   nnoremap <leader>\ :vsplit
+   nnoremap <leader>- :split
+
+   " remove extra whitespace
+   nmap <leader><space> :%s/\s\+$<cr>
+   nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
+
+   " switch between current and last buffer
+   nmap <leader>. <c-^>
+
+   " enable . command in visual mode
+   vnoremap . :normal .<cr>
+
+   " scroll the viewport faster
+   nnoremap <C-e> 3<C-e>
+   nnoremap <C-y> 3<C-y>
+" }}}
+
+" Theme {{{
+   colorscheme darcula
+   let g:airline_theme='jellybeans'
+   let g:airline_powerline_fonts = 1
+" }}}
