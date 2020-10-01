@@ -1,4 +1,4 @@
-" The following configuration is used by  BK
+9450" The following configuration is used by  BK
 
 " Plugins {{{
    " Make sure that plugin manager is installed and loaded
@@ -21,10 +21,17 @@
    "Plug 'stephpy/vim-yaml'
 
    " Syntax
-   Plug 'sheerun/vim-polyglot'
+   "Plug 'sheerun/vim-polyglot'
+   
+   " Linting
+   Plug 'dense-analysis/ale'
+   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+   let g:ale_sign_error = '✘'
+   let g:ale_sign_warning = '⚠'
+   let g:ale_lint_on_text_changed = 'never'
 
    " integrate vim with git
-   Plug 'tpope/fugitive'
+   Plug 'tpope/vim-fugitive'
 
    " Visual
    Plug 'preservim/nerdtree'
@@ -53,6 +60,10 @@
 
    " tmux integration for vim
    Plug 'benmills/vimux'
+
+   " folding
+   Plug 'pedrohdz/vim-yaml-folds'
+   Plug 'masukomi/vim-markdown-folding'
 
    " enables repeating other supported plugins with the . command
    Plug 'tpope/vim-repeat'
@@ -256,6 +267,7 @@
    set shiftwidth=2 " number of spaces to use for indent and unindent
    set shiftround " round indent to a multiple of 'shiftwidth'
    set expandtab " expand tabs to space
+   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab " set two spaces for yaml files
 
    " code folding settings
    set foldmethod=syntax " fold based on indent
@@ -263,6 +275,11 @@
    set foldnestmax=10 " deepest fold is 10 levels
    set nofoldenable " don't fold by default
    set foldlevel=1
+
+   " Change coursor based on mode
+   let &t_SI = "\<esc>[5 q"
+   let &t_SR = "\<esc>[2 q"
+   let &t_EI = "\<esc>[1 q"
 
    " toggle invisible characters
    "set list
@@ -336,12 +353,24 @@
    inoremap <leader>q <ESC>:q<CR>
    nnoremap <leader>q :q<CR>
 
+   inoremap <leader>q! <ESC>:q!<CR>
+   nnoremap <leader>q! :q!<CR>
+
    inoremap <leader>x <ESC>:x<CR>
    nnoremap <leader>x :x<CR>
 
    nnoremap <leader>t :tabnew<CR> 
    nnoremap <leader>\ :vsplit
    nnoremap <leader>- :split
+
+   " Create line text object
+   xnoremap il g_o^
+   onoremap il :normal vil<CR>
+   xnoremap al $o^
+   onoremap al :normal val<CR>
+   " crude buffer text object
+   xnoremap i% GoggV
+   onoremap i% :normal vi%<CR>
 
    " remove extra whitespace
    nmap <leader><space> :%s/\s\+$<cr>
