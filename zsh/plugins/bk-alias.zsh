@@ -2,17 +2,17 @@
 
 # Shortcut to access frequent directories
 alias ..="cd .."
-alias cdv="cd ~/Projects/git/Virgin/"
-alias cdvr="cd ~/Projects/git/Virgin/Repositories/"
-alias cdvi="cd ~/Projects/git/Virgin/Repositories/Infrastructure/"
-alias cdvt="cd ~/Projects/git/Virgin/Repositories/Infrastructure/terraform/"
-alias cdvm="cd ~/Projects/git/Virgin/Repositories/Manifests/"
+# alias cdv="cd ~/Projects/git/Virgin/"
+# alias cdvr="cd ~/Projects/git/Virgin/Repositories/"
+# alias cdvi="cd ~/Projects/git/Virgin/Repositories/Infrastructure/"
+# alias cdvt="cd ~/Projects/git/Virgin/Repositories/Infrastructure/terraform/"
+# alias cdvm="cd ~/Projects/git/Virgin/Repositories/Manifests/"
 alias cda="cd ~/Projects/vsts/Acronis/"
 alias cdad="cd ~/Projects/vsts/Acronis/Acronis.Kaseya.DevOpsConfigs/"
 alias cdab="cd ~/Projects/vsts/Acronis/Acronis.Kaseya.BaseWebApp/"
 alias cdau="cd ~/Projects/vsts/Acronis/Acronis.Kaseya.UI/"
 alias cdah="cd ~/Projects/vsts/Acronis/helper_files/"
-alias cdak="cd ~/Projects/acronis/ci-kaseya/"
+alias cdak="cd ~/Projects/acronis/ci-kaseya-bk/"
 alias cdt="cd /tmp"
 
 # abbrevations for apps 
@@ -36,7 +36,7 @@ alias kap="kubectl --context acronis -n production"
 alias kam="kubectl --context acronis -n monitoring"
 alias kat="kubectl --context acronis -n test"
 alias kau="kubectl --context acronis -n uat"
-alias kaa="kubectl --kubeconfig ~/.kube/config_acronis -n kaseya-ci"
+alias kaa="kubectl --kubeconfig ~/.kube/config_acronis -n kaseya-internal"
 alias -g yl="-o yaml | less"
 alias -g y="-o yaml"
 
@@ -50,3 +50,6 @@ alias -g Y='| xsel -ib'
 
 # keeper
 #alias kpr="keeper --config=/home/bungee/.keeper/config.json"
+
+# docker
+alias dcp="docker-compose"

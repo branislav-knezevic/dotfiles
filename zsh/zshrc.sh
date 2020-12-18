@@ -41,7 +41,7 @@
   export FZF_DEFAULT_COMMAND="fd --type f"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_OPS"
 
-#Functions
+# Functions
   # Loop a command and show the output in vim
   loop() {
     echo ":cq to quit\n" > /tmp/log/output 
@@ -128,3 +128,6 @@ fi
 # this file will set the custom theme which can't be changed by the theme setting 
 # source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
+
+# Variables
+source ~/dotfiles/zsh/sensitive_variables.sh
