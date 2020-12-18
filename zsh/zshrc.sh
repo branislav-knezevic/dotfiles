@@ -9,6 +9,7 @@
   ZSH_THEME="ys"
 
   HISTFILE=~/.zsh_history
+  HISTSIZE=100000
   SAVEHIST=100000
   setopt inc_append_history # To save every command before it is executed 
   setopt share_history # setopt inc_append_history
@@ -67,7 +68,20 @@
 # Edit the array below, or relocate it to ~/.zshrc before anything is sourced
 # For help create an issue at github.com/parth/dotfiles
 
+# Basic auto/tab complete:
 autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden fil
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
 
 plugins=(
   docker
@@ -106,7 +120,7 @@ source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/docker/_docker
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/git/git.plugin.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/history/history.plugin.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/terraform/_terraform
+# source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/terraform/_terraform
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/kubectl/kubectl.plugin.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/encode64/encode64.plugin.zsh
 

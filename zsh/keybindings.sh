@@ -24,12 +24,17 @@
 	bindkey "^g" git_prepare
 
 # Edit and rerun
-	function edit_and_run() {
-		BUFFER="fc"
-		zle accept-line
-	}
-	zle -N edit_and_run
-	bindkey "^v" edit_and_run
+  # this commented part was in the original source but it doesn't allow edit of the current command but previously working
+	# command
+	# function edit_and_run() {
+	# 	BUFFER="fc"
+	# 	zle accept-line
+	# }
+	# zle -N edit_and_run
+	# bindkey "^v" edit_and_run
+	autoload edit-command-line
+	zle -N edit-command-line
+	bindkey "^v" edit-command-line
 
 # Sudo
 	function add_sudo() {
