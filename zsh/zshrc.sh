@@ -6,7 +6,7 @@
   # Look in ~/.oh-my-zsh/themes/
   # Optionally, if you set this to "random", it'll load a random theme each
   # time that oh-my-zsh is loaded.
-  ZSH_THEME="ys-custom"
+  ZSH_THEME="bungee"
 
   HISTFILE=~/.zsh_history
   HISTSIZE=100000
@@ -23,22 +23,15 @@
   # This is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
   # alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
 
-# Settings
-  export VISUAL=vim
-  export EDITOR=$VISUAL
-  
-  export PATH=/usr/bin:$PATH
-  export PATH=~/.local/bin:$PATH
-  export PATH=/usr/local/go/bin:$PATH
+# Load variables
+  source ~/dotfiles/zsh/env_variables.sh
+# Load sensitive variables
+  source ~/dotfiles/zsh/sensitive_variables.sh
 
-  # Settings for GO
-  export GOROOT=/usr/local/go
-  export GOPATH=~/projects
 
-  source ~/dotfiles/zsh/plugins/fixls.zsh
-  # enable fuzzy finder
+# enable fuzzy finder
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-  export FZF_DEFAULT_OPS="--extended"
+  # export FZF_DEFAULT_OPS="--extended"
   export FZF_DEFAULT_COMMAND="fd --type f"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_OPS"
 
@@ -69,30 +62,35 @@
 # For help create an issue at github.com/parth/dotfiles
 
 # Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden fil
+  autoload -U compinit
+  zstyle ':completion:*' menu select
+  zmodload zsh/complist
+  compinit
+  _comp_options+=(globdots)		# Include hidden fil
 
 # Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
+  bindkey -M menuselect 'h' vi-backward-char
+  bindkey -M menuselect 'k' vi-up-line-or-history
+  bindkey -M menuselect 'l' vi-forward-char
+  bindkey -M menuselect 'j' vi-down-line-or-history
+  bindkey -v '^?' backward-delete-char
 
 
 plugins=(
-  docker
-  aws
   git
+  docker
+  docker-compose
+  aws
   tmux
   history
   zsh-autosuggestions
   terraform
   kubectl
   encode64
+  common-aliases
+  copydir
+  copyfile
+  fzf
 )
 
 for plugin ($plugins); do
@@ -104,26 +102,17 @@ compinit
 # initialize defualt oh-my-zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/oh-my-zsh.sh
 
-# initialize custom plugins
-source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
+# initialize custom plugins which are not in the default plings dir
+source ~/dotfiles/zsh/plugins/fixls.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
 #source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh # this disables some features from regular terminal movement
 source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/keybindings.sh 
+source ~/dotfiles/zsh/plugins/keybindings.sh 
 source ~/dotfiles/zsh/plugins/bk-alias.zsh
 source ~/dotfiles/zsh/plugins/helm.zsh
 source ~/.local/bin/aws_zsh_completer.sh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/docker/_docker
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/git/git.plugin.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/history/history.plugin.zsh
-# source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/terraform/_terraform
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/kubectl/kubectl.plugin.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/encode64/encode64.plugin.zsh
-
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
@@ -143,5 +132,3 @@ fi
 # source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
 
-# Variables
-source ~/dotfiles/zsh/sensitive_variables.sh
