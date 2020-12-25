@@ -50,3 +50,6 @@ alias -g Y='| xsel -ib'
 
 # keeper
 #alias kpr="keeper --config=/home/bungee/.keeper/config.json"
+
+# git custom
+gdtl='git difftool -y'
