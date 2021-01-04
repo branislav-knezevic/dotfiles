@@ -1,6 +1,6 @@
 # Vars
   # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/dotfiles/zsh/plugins/oh-my-zsh
+  export ZSH=$HOME/.dotfiles/zsh/plugins/oh-my-zsh
 
   # Set name of the theme to load.
   # Look in ~/.oh-my-zsh/themes/
@@ -24,9 +24,9 @@
   # alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
 
 # Load variables
-  source ~/dotfiles/zsh/env_variables.sh
+  source ~/.dotfiles/zsh/env_variables.sh
 # Load sensitive variables
-  source ~/dotfiles/zsh/sensitive_variables.sh
+  source ~/.dotfiles/zsh/sensitive_variables.sh
 
 
 # enable fuzzy finder
@@ -94,24 +94,24 @@ plugins=(
 )
 
 for plugin ($plugins); do
-  fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
+  fpath=(~/.dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
 done
 
 compinit
 
 # initialize defualt oh-my-zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/oh-my-zsh.sh
+source ~/.dotfiles/zsh/plugins/oh-my-zsh/oh-my-zsh.sh
 
 # initialize custom plugins which are not in the default plings dir
-source ~/dotfiles/zsh/plugins/fixls.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
-#source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh # this disables some features from regular terminal movement
-source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/plugins/keybindings.sh 
-source ~/dotfiles/zsh/plugins/bk-alias.zsh
-source ~/dotfiles/zsh/plugins/helm.zsh
+source ~/.dotfiles/zsh/plugins/fixls.zsh
+source ~/.dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
+source ~/.dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
+#source ~/.dotfiles/zsh/plugins/vi-mode.plugin.zsh # this disables some features from regular terminal movement
+source ~/.dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.dotfiles/zsh/plugins/keybindings.sh 
+source ~/.dotfiles/zsh/plugins/bk-alias.zsh
+source ~/.dotfiles/zsh/plugins/helm.zsh
 source ~/.local/bin/aws_zsh_completer.sh
 
 # Fix for arrow-key searching
@@ -129,6 +129,6 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 # this file will set the custom theme which can't be changed by the theme setting 
-# source ~/dotfiles/zsh/prompt.sh
-export PATH=$PATH:$HOME/dotfiles/utils
+# source ~/.dotfiles/zsh/prompt.sh
+export PATH=$PATH:$HOME/.dotfiles/utils
 
