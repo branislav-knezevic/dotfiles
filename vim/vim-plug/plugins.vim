@@ -12,6 +12,7 @@ call plug#begin('~/.vim/autoload')
 
 " Coloschemes
 Plug 'doums/darcula'
+Plug 'morhetz/gruvbox'
 " Plug 'phanviet/vim-monokai-pro'
 " Plug 'joshdick/onedark.vim'
 
