@@ -1,5 +1,88 @@
 9450" The following configuration is used by  BK
 
+" Key mappings {{{
+   " set the map leader for more key combos
+   let mapleader = ','
+
+   " remap esc
+   inoremap jk <esc>
+
+   " ctrl-l to clear search highlighting
+   nnoremap <space> :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
+
+   " ctll-c to clear line numbers
+   nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
+
+   " ctrl-n to show line number and relativeline number
+   nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>¬
+
+   " Easier line movement
+   nnoremap H 0
+   nnoremap L $
+   nnoremap J G
+   nnoremap K gg
+   " moving up and down work as you would expect
+   nnoremap <silent> j gj
+   nnoremap <silent> k gk
+   nnoremap <silent> ^ g^
+   nnoremap <silent> $ g$
+
+   " select whole line
+   nnoremap vv 0v$
+
+   " set paste toggle
+   set pastetoggle=<leader>v
+
+   " set list
+   nnoremap <leader>l :set list!<cr>
+
+   " File and Window Mnagement
+   inoremap <leader>w <Esc>:w<CR>
+   nnoremap <leader>w :w<CR>
+   nnoremap <leader>, :w<CR>
+
+   inoremap <leader>q <ESC>:q<CR>
+   nnoremap <leader>q :q<CR>
+
+   inoremap <leader>q! <ESC>:q!<CR>
+   nnoremap <leader>q! :q!<CR>
+
+   inoremap <leader>x <ESC>:x<CR>
+   nnoremap <leader>x :x<CR>
+
+   " nnoremap <leader>t :tabnew<CR> 
+   nnoremap <leader>\ :vsplit
+   nnoremap <leader>- :split
+   " movement within splits
+   nnoremap <leader>j <C-W><C-J>
+   nnoremap <leader>k <C-W><C-K>
+   nnoremap <leader>l <C-W><C-L>
+   nnoremap <leader>h <C-W><C-H>
+
+   " Create line text object
+   xnoremap il g_o^
+   onoremap il :normal vil<CR>
+   xnoremap al $o^
+   onoremap al :normal val<CR>
+   " crude buffer text object
+   xnoremap i% GoggV
+   onoremap i% :normal vi%<CR>
+
+   " remove extra whitespace
+   nmap <leader><space> :%s/\s\+$<cr>
+   nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
+
+   " switch between current and last buffer
+   nmap <leader>. <c-^>
+
+   " enable . command in visual mode
+   vnoremap . :normal .<cr>
+
+   " scroll the viewport faster
+   nnoremap <C-e> 3<C-e>
+   nnoremap <C-y> 3<C-y>
+" }}}
+
 " Plugins {{{
    " Make sure that plugin manager is installed and loaded
    if empty(glob('~/.vim/autoload/plug.vim'))
@@ -83,6 +166,13 @@
    " copy text from vim to system clipboard
    Plug 'christoomey/vim-system-copy'
 
+   " JSON 
+   Plug 'elzr/vim-json', { 'for': 'json' }
+   let g:vim_json_syntax_conceal = 0
+
+   " Dockerfile syntax
+   Plug 'ekalinin/Dockerfile.vim'
+
    " NERDTree {{{
       Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
       Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -132,10 +222,16 @@
       \ }
    " }}}
 
-   " FZF {{{
-      Plug '/usr/local/opt/fzf'
+   " FZF/FuzzyFinder {{{
+      Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
       Plug 'junegunn/fzf.vim'
-      let g:fzf_layout = { 'down': '~25%' }
+      Plug 'airblade/vim-rooter'
+      " let g:fzf_layout = { 'down': '~25%' }
+      let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+
+
+      let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
+      let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
 
       if isdirectory(".git")
          " if in a git project, use :GFiles
@@ -182,14 +278,6 @@
       command! -bang -nargs=? -complete=dir GitFiles
          \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
    " }}}
-
-   " JSON {{{
-      Plug 'elzr/vim-json', { 'for': 'json' }
-      let g:vim_json_syntax_conceal = 0
-   " }}}
-
-   " Dockerfile syntax
-   Plug 'ekalinin/Dockerfile.vim'
 
    call plug#end()
 " }}}
@@ -309,83 +397,6 @@
 
 " }}}
 
-" Key mappings {{{
-   " set the map leader for more key combos
-   let mapleader = ','
-
-   " remap esc
-   inoremap jk <esc>
-
-   " ctrl-l to clear search highlighting
-   nnoremap <space> :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
-
-   " ctll-c to clear line numbers
-   nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
-
-   " ctrl-n to show line number and relativeline number
-   nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>¬
-
-   " Easier line movement
-   nnoremap H 0
-   nnoremap L $
-   nnoremap J G
-   nnoremap K gg
-   " moving up and down work as you would expect
-   nnoremap <silent> j gj
-   nnoremap <silent> k gk
-   nnoremap <silent> ^ g^
-   nnoremap <silent> $ g$
-
-   " select whole line
-   nnoremap vv 0v$
-
-   " set paste toggle
-   set pastetoggle=<leader>v
-
-   " set list
-   nnoremap <leader>l :set list!<cr>
-
-   " File and Window Mnagement
-   inoremap <leader>w <Esc>:w<CR>
-   nnoremap <leader>w :w<CR>
-   nnoremap <leader>, :w<CR>
-
-   inoremap <leader>q <ESC>:q<CR>
-   nnoremap <leader>q :q<CR>
-
-   inoremap <leader>q! <ESC>:q!<CR>
-   nnoremap <leader>q! :q!<CR>
-
-   inoremap <leader>x <ESC>:x<CR>
-   nnoremap <leader>x :x<CR>
-
-   nnoremap <leader>t :tabnew<CR> 
-   nnoremap <leader>\ :vsplit
-   nnoremap <leader>- :split
-
-   " Create line text object
-   xnoremap il g_o^
-   onoremap il :normal vil<CR>
-   xnoremap al $o^
-   onoremap al :normal val<CR>
-   " crude buffer text object
-   xnoremap i% GoggV
-   onoremap i% :normal vi%<CR>
-
-   " remove extra whitespace
-   nmap <leader><space> :%s/\s\+$<cr>
-   nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
-
-   " switch between current and last buffer
-   nmap <leader>. <c-^>
-
-   " enable . command in visual mode
-   vnoremap . :normal .<cr>
-
-   " scroll the viewport faster
-   nnoremap <C-e> 3<C-e>
-   nnoremap <C-y> 3<C-y>
-" }}}
 
 " Theme {{{
    colorscheme darcula
