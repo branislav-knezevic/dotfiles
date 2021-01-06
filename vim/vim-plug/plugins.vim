@@ -30,7 +30,6 @@ Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 
 " Visual
-Plug 'preservim/nerdtree'
 " LOAD POWERLINE OR AIRLINE PLUGIN
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -48,12 +47,13 @@ Plug 'tpope/vim-commentary'
 " mappings which are simply short normal mode aliases for commonly used ex commands
 Plug 'tpope/vim-unimpaired'
 
+"improved motions in vim
+Plug 'easymotion/vim-easymotion'
+
 " endings for html, xml, etc. - ehances surround
 "Plug 'tpope/vim-ragtag'
 
 " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
-Plug 'tpope/vim-surround'
-
 Plug 'tpope/vim-surround'
 
 " tmux integration for vim
@@ -88,6 +88,8 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'ekalinin/Dockerfile.vim'
 
 " NERDTree 
+Plug 'AndrewRadev/andrews_nerdtree.vim'
+Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'

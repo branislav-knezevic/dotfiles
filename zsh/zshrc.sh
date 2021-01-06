@@ -111,6 +111,7 @@ source ~/.dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.dotfiles/zsh/plugins/keybindings.sh 
 source ~/.dotfiles/zsh/plugins/bk-alias.zsh
+source ~/.dotfiles/zsh/plugins/bk-functions.zsh
 source ~/.dotfiles/zsh/plugins/helm.zsh
 source ~/.local/bin/aws_zsh_completer.sh
 

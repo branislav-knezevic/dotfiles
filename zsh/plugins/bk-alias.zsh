@@ -53,3 +53,16 @@ alias -g Y='| xsel -ib'
 
 # git custom
 gdtl='git difftool -y'
+alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
+
+# fuzzy commands with fzf
+alias gcorb='gco --track $(git branch -r | fzf)'
+alias gcob='gco $(git branch | fzf)'
+alias fz="fzf --bind 'f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort' --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500'"
+alias vfz='vim $(fz)'
+alias preview="fzf --preview 'bat --color \"always\" --line-range 0:30 {}'"
+
+# various
+alias myip="curl http://ipecho.net/plain; echo"
+alias dirs='dirs -v | head -10'
+alias usage='du -h -d1'

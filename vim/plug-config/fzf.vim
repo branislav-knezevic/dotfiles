@@ -1,6 +1,6 @@
-let g:fzf_layout = { 'down': '~50%' }
-" Customize fzf colors to match your color scheme
+let g:fzf_layout = { 'down': '~25%' }
 
+" Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -20,16 +20,16 @@ let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
 
 if isdirectory(".git")
-		" if in a git project, use :GFiles
-		nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
+    " if in a git project, use :GFiles
+    nmap <silent> <leader>d :GitFiles --cached --others --exclude-standard<cr>
 else
-		" otherwise, use :FZF
-		nmap <silent> <leader>t :FZF<cr>
+    " otherwise, use :FZF
+    nmap <silent> <leader>d :FZF<cr>
 endif
 
-nmap <silent> <leader>s :GFiles?<cr>
-nmap <silent> <leader>r :Buffers<cr>
-nmap <silent> <leader>e :FZF<cr>
+nmap <silent> <leader>e :GFiles?<cr>
+nmap <silent> <leader>b :Buffers<cr>
+nmap <silent> <leader>f :FZF<cr>
 nmap <silent> <leader>g :Rg<cr>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -82,3 +82,21 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
+" Jump to tab: <Leader>t
+function TabName(n)
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    return fnamemodify(bufname(buflist[winnr - 1]), ':t')
+endfunction
+
+function! s:jumpToTab(line)
+    let pair = split(a:line, ' ')
+    let cmd = pair[0].'gt'
+    execute 'normal' cmd
+endfunction
+
+nnoremap <silent> <Leader>t :call fzf#run({
+\   'source':  reverse(map(range(1, tabpagenr('$')), 'v:val." "." ".TabName(v:val)')),
+\   'sink':    function('<sid>jumpToTab'),
+\   'down':    tabpagenr('$') + 2
+\ })<CR>

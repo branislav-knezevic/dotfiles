@@ -27,6 +27,11 @@ nmap <silent> <leader>n :call ToggleNerdTree()<cr>
 " find the current file in nerdtree without needing to reload the drawer
 nmap <silent> <leader>y :NERDTreeFind<cr>
 
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
+
 let NERDTreeShowHidden=1
 " let NERDTreeDirArrowExpandable = '▷'
 " let NERDTreeDirArrowCollapsible = '▼'

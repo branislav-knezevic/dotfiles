@@ -19,3 +19,5 @@ source $HOME/.dotfiles/vim/plug-config/ale.vim
 source $HOME/.dotfiles/vim/plug-config/fzf.vim
 source $HOME/.dotfiles/vim/plug-config/nerdtree.vim
 source $HOME/.dotfiles/vim/plug-config/vim-json.vim
+source $HOME/.dotfiles/vim/plug-config/winmove.vim
+source $HOME/.dotfiles/vim/plug-config/zoom.vim

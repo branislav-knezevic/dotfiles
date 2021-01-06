@@ -37,3 +37,5 @@ set visualbell
 set t_vb=
 set tm=500
 
+" set vim to use OS clipboard
+set clipboard=unnamed

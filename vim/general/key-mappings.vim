@@ -33,7 +33,10 @@ nnoremap vv 0v$
 set pastetoggle=<leader>v
 
 " set list
-nnoremap <leader>l :set list!<cr>
+" nnoremap <leader>l :set list!<cr>
+
+" relaod vim cofiguration
+nnoremap <leader>r :source ~/.vimrc<CR>
 
 " File and Window Mnagement
 inoremap <leader>w <Esc>:w<CR>
@@ -49,14 +52,37 @@ nnoremap <leader>q! :q!<CR>
 inoremap <leader>x <ESC>:x<CR>
 nnoremap <leader>x :x<CR>
 
-" nnoremap <leader>t :tabnew<CR> 
-nnoremap <leader>\ :vsplit
-nnoremap <leader>- :split
-" movement within splits
-nnoremap <leader>j <C-W><C-J>
-nnoremap <leader>k <C-W><C-K>
-nnoremap <leader>l <C-W><C-L>
-nnoremap <leader>h <C-W><C-H>
+" Tabs
+nnoremap <C-Tab> :tabnew<CR> 
+nnoremap <Tab> :tabnext<CR> 
+nnoremap <S-Tab> :tabprevious<CR> 
+nnoremap <leader>1 :tabmove -<CR>
+nnoremap <leader>2 :tabmove +<CR>
+
+" Buffers
+" switch between current and last buffer
+nmap <leader>. <c-^>
+" go to next buffer
+nmap <leader>a :bp<CR>
+" go to previous buffer
+nmap <leader>s :bn<CR>
+
+" Splits
+nnoremap <leader>\ :vsplit<CR>
+nnoremap <leader>- :split<CR>
+" split movement
+map <silent> <C-h> <Plug>WinMoveLeft
+map <silent> <C-j> <Plug>WinMoveDown
+map <silent> <C-k> <Plug>WinMoveUp
+map <silent> <C-l> <Plug>WinMoveRight
+" split resize
+nnoremap <leader>h :vertical resize -5<CR>
+nnoremap <leader>j :res -5<CR>
+nnoremap <leader>k :res +5<CR>
+nnoremap <leader>l :vertical resize +5<CR>
+
+nmap <silent> <C-z> <Plug>Zoom
+" nmap <leader>z <Plug>Zoom
 
 " Create line text object
 xnoremap il g_o^
@@ -70,9 +96,6 @@ onoremap i% :normal vi%<CR>
 " remove extra whitespace
 nmap <leader><space> :%s/\s\+$<cr>
 nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
-
-" switch between current and last buffer
-nmap <leader>. <c-^>
 
 " enable . command in visual mode
 vnoremap . :normal .<cr>
