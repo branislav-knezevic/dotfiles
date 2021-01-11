@@ -41,7 +41,7 @@ nnoremap <leader>r :source ~/.vimrc<CR>
 " File and Window Mnagement
 inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>, :w<CR>
+nnoremap <leader>m :w<CR>
 
 inoremap <leader>q <ESC>:q<CR>
 nnoremap <leader>q :q<CR>

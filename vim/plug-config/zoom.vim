@@ -4,7 +4,7 @@
 " the code from that buffer.
 " Triggering the plugin again from the zoomed in tab brings it back
 " to its original pane location
-function s:Zoom()
+function! s:Zoom()
     if winnr('$') > 1
         tab split
     elseif len(filter(map(range(tabpagenr('$')), 'tabpagebuflist(v:val + 1)'),

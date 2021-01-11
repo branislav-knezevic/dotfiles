@@ -102,7 +102,7 @@ compinit
 # initialize defualt oh-my-zsh
 source ~/.dotfiles/zsh/plugins/oh-my-zsh/oh-my-zsh.sh
 
-# initialize custom plugins which are not in the default plings dir
+# initialize custom plugins which are not in the default plugins dir
 source ~/.dotfiles/zsh/plugins/fixls.zsh
 source ~/.dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
 source ~/.dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh

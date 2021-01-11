@@ -5,19 +5,22 @@
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 
 " General settings
-source $HOME/.dotfiles/vim/general/settings.vim
-source $HOME/.dotfiles/vim/general/key-mappings.vim
-source $HOME/.dotfiles/vim/general/appearance.vim
-source $HOME/.dotfiles/vim/vim-plug/plugins.vim
+source ~/.dotfiles/vim/general/settings.vim
+source ~/.dotfiles/vim/general/key-mappings.vim
+source ~/.dotfiles/vim/general/appearance.vim
+source ~/.dotfiles/vim/vim-plug/plugins.vim
 
 " Themes
-source $HOME/.dotfiles/vim/themes/theme.vim
-source $HOME/.dotfiles/vim/themes/airline.vim
+source ~/.dotfiles/vim/themes/theme.vim
+source ~/.dotfiles/vim/themes/airline.vim
 
 " Plugin Configuration
-source $HOME/.dotfiles/vim/plug-config/ale.vim
-source $HOME/.dotfiles/vim/plug-config/fzf.vim
-source $HOME/.dotfiles/vim/plug-config/nerdtree.vim
-source $HOME/.dotfiles/vim/plug-config/vim-json.vim
-source $HOME/.dotfiles/vim/plug-config/winmove.vim
-source $HOME/.dotfiles/vim/plug-config/zoom.vim
+source ~/.dotfiles/vim/plug-config/ale.vim
+source ~/.dotfiles/vim/plug-config/fzf.vim
+source ~/.dotfiles/vim/plug-config/nerdtree.vim
+source ~/.dotfiles/vim/plug-config/vim-json.vim
+source ~/.dotfiles/vim/plug-config/winmove.vim
+source ~/.dotfiles/vim/plug-config/zoom.vim
+source ~/.dotfiles/vim/plug-config/zoom.vim
+" source ~/.dotfiles/vim/plug-config/transparency-toggle.vim
+
