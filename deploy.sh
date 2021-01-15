@@ -103,7 +103,7 @@ echo "Installing guake"
 sudo bash guake/guake-setup.sh
 
 echo "Loading guake config..."
-guake --load-preferences guake/guake-preferences
+guake --restore-preferences guake/guake-preferences
 
 echo "Installing curl as it is required for Vim"
 sudo apt install curl -y
@@ -117,7 +117,7 @@ sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/d
 echo "Installing Powerline fonts pack"
 sudo bash custom/fonts/PowerlineFonts/powerline-fonts.sh
 
-echo "Adding cutom "Bungee" zsh theme..."
+echo "Adding custom "Bungee" zsh theme..."
 cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
 
 echo
