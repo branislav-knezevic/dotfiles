@@ -99,11 +99,17 @@ printf "source ~/.dotfiles/zsh/zshrc_manager.sh" > ~/.zshrc
 printf "so ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
+echo "Installing curl as it is required for Vim"
+sudo apt install curl -y
+
+echo "Installing xclip as it is needed for Tmux"
+sudo apt install tmux -y
+
 echo "Adding necessary fonts for NERDTree..."
-cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
+sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
 
 echo "Adding cutom "Bungee" zsh theme..."
-cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/mh.zsh-theme
+cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
 
 echo
 echo "Please log out and log back in for default shell to be initialized."

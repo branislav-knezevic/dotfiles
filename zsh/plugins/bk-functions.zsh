@@ -1,6 +1,8 @@
 # Custom functions
 
 ## custom functions
+
+# open a webpage to create a pull request form the current branch
 gpr() {
   if [ $? -eq 0 ]; then
     github_url=`git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@' -e 's%\.git$%%'`;
@@ -14,4 +16,9 @@ gpr() {
  
 commands() {
   awk '{a[$2]++}END{for(i in a){print a[i] " " i}}'
+}
+
+# create new dir and go into it
+mdc(){
+  mkdir $1 && cd $_
 }
