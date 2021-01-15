@@ -99,6 +99,12 @@ printf "source ~/.dotfiles/zsh/zshrc_manager.sh" > ~/.zshrc
 printf "so ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
+echo "Installing guake" 
+sudo bash guake/guake-setup.sh
+
+echo "Loading guake config..."
+guake --load-preferences guake/guake-preferences
+
 echo "Installing curl as it is required for Vim"
 sudo apt install curl -y
 
@@ -107,6 +113,9 @@ sudo apt install tmux -y
 
 echo "Adding necessary fonts for NERDTree..."
 sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
+
+echo "Installing Powerline fonts pack"
+sudo bash custom/fonts/PowerlineFonts/powerline-fonts.sh
 
 echo "Adding cutom "Bungee" zsh theme..."
 cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
