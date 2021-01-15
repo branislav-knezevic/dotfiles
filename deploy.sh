@@ -115,7 +115,7 @@ echo "Adding necessary fonts for NERDTree..."
 sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
 
 echo "Installing Powerline fonts pack"
-sudo bash custom/fonts/PowerlineFonts/powerline-fonts.sh
+sudo apt install font-powerline
 
 echo "Adding custom "Bungee" zsh theme..."
 cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
