@@ -42,14 +42,14 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Select some of the available themes
-nnoremap <silent> <Leader>C :call fzf#run({
-\   'source':
-\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-\   'sink':    'colo',
-\   'options': '+m',
-\   'left':    30
-\ })<CR>
+" nnoremap <silent> <Leader>C :call fzf#run({
+" \   'source':
+" \     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+" \         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+" \   'sink':    'colo',
+" \   'options': '+m',
+" \   'left':    30
+" \ })<CR>
 
 command! FZFMru call fzf#run({
 \  'source':  v:oldfiles,
@@ -83,7 +83,7 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 " Jump to tab: <Leader>t
-function TabName(n)
+function! TabName(n)
     let buflist = tabpagebuflist(a:n)
     let winnr = tabpagewinnr(a:n)
     return fnamemodify(bufname(buflist[winnr - 1]), ':t')

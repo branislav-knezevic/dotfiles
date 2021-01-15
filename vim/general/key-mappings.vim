@@ -16,10 +16,11 @@ nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers tur
 nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>¬
 
 " Easier line movement
-nnoremap H 0
-nnoremap L $
-nnoremap J G
-nnoremap K gg
+" nnoremap H 0
+" nnoremap L $
+" nnoremap J G
+" nnoremap K gg
+
 " moving up and down work as you would expect
 nnoremap <silent> j gj
 nnoremap <silent> k gk
@@ -41,7 +42,7 @@ nnoremap <leader>r :source ~/.vimrc<CR>
 " File and Window Mnagement
 inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>m :w<CR>
+nnoremap <leader>, :w<CR>
 
 inoremap <leader>q <ESC>:q<CR>
 nnoremap <leader>q :q<CR>
@@ -66,6 +67,9 @@ nmap <leader>. <c-^>
 nmap <leader>a :bp<CR>
 " go to previous buffer
 nmap <leader>s :bn<CR>
+" don't close the split when buffer is closed
+command Bd bp | sp | bn | bd
+nnoremap <leader>Q :Bd<CR>
 
 " Splits
 nnoremap <leader>\ :vsplit<CR>
@@ -85,10 +89,12 @@ nmap <silent> <C-z> <Plug>Zoom
 " nmap <leader>z <Plug>Zoom
 
 " Create line text object
-xnoremap il g_o^
-onoremap il :normal vil<CR>
-xnoremap al $o^
-onoremap al :normal val<CR>
+" commented out as it is done via plugin
+" xnoremap il g_o^
+" onoremap il :normal vil<CR>
+" xnoremap al $o^
+" onoremap al :normal val<CR>
+
 " crude buffer text object
 xnoremap i% GoggV
 onoremap i% :normal vi%<CR>

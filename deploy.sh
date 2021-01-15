@@ -93,9 +93,17 @@ else
 	echo -e "\nNot backing up old dotfiles."
 fi
 
-printf "source '$HOME/.dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
-printf "so $HOME/.dotfiles/vim/vimrc.vim" > ~/.vimrc
-printf "source-file $HOME/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+echo "Creating links to dotfiles..."
+ln -s ~/Projects/Private/dotfiles ~/.dotfiles
+printf "source ~/.dotfiles/zsh/zshrc_manager.sh" > ~/.zshrc
+printf "so ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
+printf "source-file ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+
+echo "Adding necessary fonts for NERDTree..."
+cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
+
+echo "Adding cutom "Bungee" zsh theme..."
+cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/mh.zsh-theme
 
 echo
 echo "Please log out and log back in for default shell to be initialized."

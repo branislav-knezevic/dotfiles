@@ -39,3 +39,8 @@ set tm=500
 
 " set vim to use OS clipboard
 set clipboard=unnamed
+
+" set splits to behave as espected
+set splitright
+set splitbelow
+

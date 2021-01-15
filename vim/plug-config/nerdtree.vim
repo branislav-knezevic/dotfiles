@@ -25,7 +25,9 @@ endfunction
 " toggle nerd tree
 nmap <silent> <leader>n :call ToggleNerdTree()<cr>
 " find the current file in nerdtree without needing to reload the drawer
-nmap <silent> <leader>y :NERDTreeFind<cr>
+nmap <silent> <leader>z :NERDTreeFind<cr>
+" toggle only Git edited files
+nmap <silent> gm :NERDTreeGitFilterToggle<CR>
 
 " enable line numbers
 let NERDTreeShowLineNumbers=1

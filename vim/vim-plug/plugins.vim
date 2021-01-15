@@ -63,6 +63,15 @@ Plug 'benmills/vimux'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'masukomi/vim-markdown-folding'
 
+" this is needed for the three below plugins
+Plug 'kana/vim-textobj-user'
+" line as text object
+Plug 'kana/vim-textobj-line'
+" indent as text object
+Plug 'kana/vim-textobj-indent'
+" entire as text object
+Plug 'kana/vim-textobj-entire'
+
 " enables repeating other supported plugins with the . command
 Plug 'tpope/vim-repeat'
 

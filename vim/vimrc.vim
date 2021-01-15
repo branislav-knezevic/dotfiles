@@ -16,11 +16,12 @@ source ~/.dotfiles/vim/themes/airline.vim
 
 " Plugin Configuration
 source ~/.dotfiles/vim/plug-config/ale.vim
+source ~/.dotfiles/vim/plug-config/andrews_nerdtree.vim
 source ~/.dotfiles/vim/plug-config/fzf.vim
+source ~/.dotfiles/vim/plug-config/easymotion.vim
 source ~/.dotfiles/vim/plug-config/nerdtree.vim
+" source ~/.dotfiles/vim/plug-config/transparency-toggle.vim
 source ~/.dotfiles/vim/plug-config/vim-json.vim
 source ~/.dotfiles/vim/plug-config/winmove.vim
 source ~/.dotfiles/vim/plug-config/zoom.vim
-source ~/.dotfiles/vim/plug-config/zoom.vim
-" source ~/.dotfiles/vim/plug-config/transparency-toggle.vim
 
