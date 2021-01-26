@@ -76,6 +76,9 @@ check_for_software vim
 echo
 check_for_software tmux
 echo
+check_for_software vifm
+echo
+# add guake here as well
 
 check_default_shell
 
@@ -89,6 +92,7 @@ if echo "$answer" | grep -iq "^y" ;then
 	mv ~/.zshrc ~/.zshrc.old
 	mv ~/.tmux.conf ~/.tmux.conf.old
 	mv ~/.vimrc ~/.vimrc.old
+	mv ~/.config/vifm/vifmrc ~/.config/vifm/vifmrc.old
 else
 	echo -e "\nNot backing up old dotfiles."
 fi
@@ -96,26 +100,38 @@ fi
 echo "Creating links to dotfiles..."
 ln -s ~/Projects/Private/dotfiles ~/.dotfiles
 printf "source ~/.dotfiles/zsh/zshrc_manager.sh" > ~/.zshrc
-printf "so ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
-printf "source-file ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+printf "source ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
+printf "source ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+printf "source ~/.dotfiles/vifm/vifmrc.vim" > ~/.config/vifm/vifmrc
 
 echo "Installing guake" 
 sudo bash guake/guake-setup.sh
+
+echo "Installing dependencies..."
+echo
 
 echo "Loading guake config..."
 guake --restore-preferences guake/guake-preferences
 
 echo "Installing curl as it is required for Vim"
 sudo apt install curl -y
+sudo apt install xsel -y
 
 echo "Installing xclip as it is needed for Tmux"
-sudo apt install tmux -y
+sudo apt install xclip -y
+
+echo "Installing highlight as it is needed for Vifm"
+sudo apt install highlight -y
+
+echo "Installing Ripgrep and Silversercher as they are reguired for FZF"
+sudo snap install ripgrep --classic -y
+sudo apt install silversearcher-ag -y
 
 echo "Adding necessary fonts for NERDTree..."
 sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
 
 echo "Installing Powerline fonts pack"
-judo apt install fonts-powerline
+sudo apt install fonts-powerline
 
 echo "Adding custom "Bungee" zsh theme..."
 cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
