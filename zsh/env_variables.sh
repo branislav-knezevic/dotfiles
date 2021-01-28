@@ -11,4 +11,4 @@ export GOROOT=/usr/local/go
 export GOPATH=~/projects
 
 # Bat theme used for FZF
-export BAT_THEME=gruvbox
+export BAT_THEME=DarkNeon

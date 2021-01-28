@@ -1,4 +1,5 @@
-let g:fzf_layout = { 'down': '~25%' }
+" let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -16,7 +17,8 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
+" let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
 
 if isdirectory(".git")

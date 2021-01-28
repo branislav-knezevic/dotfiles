@@ -351,6 +351,9 @@ filextype */
 "
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
+
+fileviewer *.[ch],*.[ch]pp,*.[ch]xx bat --color always --wrap never --pager never %c -p
+
 "
 " Or leave it for automatic detection
 "
@@ -396,19 +399,19 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " Sample mappings
 
 " Start shell in current directory
-nnoremap s :shell<cr>
+nnoremap S :shell<cr>
 
 " Display sorting dialog
-nnoremap S :sort<cr>
+nnoremap s :sort<cr>
 
 " Toggle visibility of preview window
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
 " Open file in existing instance of gvim
-nnoremap o :!gvim --remote-tab-silent %f<cr>
+" nnoremap o :!gvim --remote-tab-silent %f<cr>
 " Open file in new instance of gvim
-nnoremap O :!gvim %f<cr>
+" nnoremap O :!gvim %f<cr>
 
 " Open file in the background using its default program
 nnoremap gb :file &<cr>l
