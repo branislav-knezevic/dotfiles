@@ -1,4 +1,7 @@
-# custom aliases by me
+# custom aliases 
+
+# Vim
+alias v="vim -p"
 
 # Shortcut to access frequent directories
 alias ..="cd .."
