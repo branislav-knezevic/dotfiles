@@ -17,9 +17,6 @@ nnoremap o :only<cr>
 nnoremap \ :vsplit<cr>
 nnoremap - :split<cr>
 
-" Display sorting dialog
-nnoremap S :sort<cr>
-
 " Mappings for faster renaming
 nnoremap r cw<c-a>
 

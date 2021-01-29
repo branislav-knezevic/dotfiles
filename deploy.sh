@@ -107,34 +107,32 @@ printf "source ~/.dotfiles/vifm/vifmrc.vim" > ~/.config/vifm/vifmrc
 echo "Installing guake" 
 sudo bash guake/guake-setup.sh
 
-echo "Installing dependencies..."
-echo
+echo "Installing dependency software..."
+sudo apt install \ 
+	curl \
+	xsel \
+	xclip 
+	silversearcher-ag \
+	bat \
+	fd-find \
+	fonts-powerline -y
+
+sudo snap install ripgrep --classic -y
 
 echo "Loading guake config..."
 guake --restore-preferences guake/guake-preferences
 
-echo "Installing curl as it is required for Vim"
-sudo apt install curl -y
-sudo apt install xsel -y
-
-echo "Installing xclip as it is needed for Tmux"
-sudo apt install xclip -y
-
-echo "Installing highlight as it is needed for Vifm"
-sudo apt install highlight -y
-
-echo "Installing Ripgrep and Silversercher as they are reguired for FZF"
-sudo snap install ripgrep --classic -y
-sudo apt install silversearcher-ag -y
+echo "setting up bat/batcat link"
+sudo ln -s /usr/bin/batcat /usr/bin/bat
 
 echo "Adding necessary fonts for NERDTree..."
 sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
 
-echo "Installing Powerline fonts pack"
-sudo apt install fonts-powerline
-
 echo "Adding custom "Bungee" zsh theme..."
 cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
+
+echo "Add proper kubectl zsh plugin"
+/bin/cp -rf custom/k8s_plugin/k8s.plugin.zsh zsh/plugins/oh-my-zsh/plugins/kubectl/kubectl.plugin.zsh
 
 echo
 echo "Please log out and log back in for default shell to be initialized."

@@ -9,19 +9,20 @@ let NERDTreeDirArrowCollapsible = "\u00a0" " make arrows invisible
 let NERDTreeNodeDelimiter = "\u263a" " smiley face
 
 augroup nerdtree
-		autocmd!
-		autocmd FileType nerdtree setlocal nolist " turn off whitespace characters
-		autocmd FileType nerdtree setlocal nocursorline " turn off line highlighting for performance
+    autocmd!
+    autocmd FileType nerdtree setlocal nolist " turn off whitespace characters
+    autocmd FileType nerdtree setlocal nocursorline " turn off line highlighting for performance
 augroup END
 
 " Toggle NERDTree
 function! ToggleNerdTree()
-		if @% != "" && @% !~ "Startify" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
-			:NERDTreeFind
-		else
-			:NERDTreeToggle
-		endif
+    if @% != "" && @% !~ "Startify" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
+	:NERDTreeFind
+    else
+	:NERDTreeToggle
+    endif
 endfunction
+
 " toggle nerd tree
 nmap <silent> <leader>n :call ToggleNerdTree()<cr>
 " find the current file in nerdtree without needing to reload the drawer
@@ -49,6 +50,9 @@ let g:NERDTreeIndicatorMapCustom = {
 \ 'Ignored'   : '☒',
 \ "Unknown"   : "?"
 \ }
+
+" Start NERDTree and put the cursor back in the other window
+autocmd VimEnter * NERDTreeToggle | wincmd p
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |

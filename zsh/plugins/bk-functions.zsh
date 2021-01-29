@@ -22,3 +22,9 @@ commands() {
 mdc(){
   mkdir $1 && cd $_
 }
+
+# edit dotfiles
+dotfiles(){
+  cd ~/Projects/Private/dotfiles
+  vim
+}

@@ -80,7 +80,6 @@ plugins=(
   git
   docker
   docker-compose
-  aws
   tmux
   history
   zsh-autosuggestions
@@ -113,7 +112,7 @@ source ~/.dotfiles/zsh/plugins/keybindings.sh
 source ~/.dotfiles/zsh/plugins/bk-alias.zsh
 source ~/.dotfiles/zsh/plugins/bk-functions.zsh
 source ~/.dotfiles/zsh/plugins/helm.zsh
-source ~/.local/bin/aws_zsh_completer.sh
+source ~/.dotfiles/zsh/plugins/aws_complete.zsh
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
