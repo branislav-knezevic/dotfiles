@@ -52,7 +52,7 @@ check_default_shell() {
 
 echo "We're going to do the following:"
 echo "1. Grab dependencies"
-echo "2. Check to make sure you have zsh, vim, and tmux installed"
+echo "2. Check to make sure you have zsh, vim, vifm, guake and tmux installed"
 echo "3. We'll help you install them if you don't"
 echo "4. We're going to check to see if your default shell is zsh"
 echo "5. We'll try to change it if it's not" 
@@ -70,6 +70,10 @@ else
 fi
 
 git submodule update --init --recursive
+# add repo for guake install
+sudo add-apt-repository ppa:linuxuprising/guake
+sudo apt update
+
 check_for_software zsh
 echo 
 check_for_software vim
@@ -78,7 +82,8 @@ check_for_software tmux
 echo
 check_for_software vifm
 echo
-# add guake here as well
+check_for_software guake
+echo
 
 check_default_shell
 
@@ -104,18 +109,14 @@ printf "source ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 printf "source ~/.dotfiles/vifm/vifmrc.vim" > ~/.config/vifm/vifmrc
 
-echo "Installing guake" 
-sudo bash guake/guake-setup.sh
-
 echo "Installing dependency software..."
-sudo apt install \ 
-	curl \
-	xsel \
-	xclip 
-	silversearcher-ag \
-	bat \
-	fd-find \
-	fonts-powerline -y
+check_for_software curl
+check_for_software xsel
+check_for_software xclip
+check_for_software silversearcher-ag
+check_for_software bat
+check_for_software fd-find
+check_for_software fonts-powerline
 
 sudo snap install ripgrep --classic -y
 
