@@ -22,11 +22,11 @@ let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --ma
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
 
 if isdirectory(".git")
-    " if in a git project, use :GFiles
-    nmap <silent> <leader>d :GitFiles --cached --others --exclude-standard<cr>
+  " if in a git project, use :GFiles
+  nmap <silent> <leader>d :GitFiles --cached --others --exclude-standard<cr>
 else
-    " otherwise, use :FZF
-    nmap <silent> <leader>d :FZF<cr>
+  " otherwise, use :FZF
+  nmap <silent> <leader>d :FZF<cr>
 endif
 
 nmap <silent> <leader>e :GFiles?<cr>
@@ -60,12 +60,12 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 
 command! -bang -nargs=* Find call fzf#vim#grep(
-		\ 'rg --column --line-number --no-heading --follow --color=always '.<q-args>, 1,
-		\ <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
+  \ 'rg --column --line-number --no-heading --follow --color=always '.<q-args>, 1,
+  \ <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 command! -bang -nargs=? -complete=dir Files
-		\ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 command! -bang -nargs=? -complete=dir GitFiles
-		\ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
  " Make Ripgrep ONLY search file contents and not filenames
 command! -bang -nargs=* Rg
@@ -86,15 +86,15 @@ endfunction
 
 " Jump to tab: <Leader>t
 function! TabName(n)
-    let buflist = tabpagebuflist(a:n)
-    let winnr = tabpagewinnr(a:n)
-    return fnamemodify(bufname(buflist[winnr - 1]), ':t')
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return fnamemodify(bufname(buflist[winnr - 1]), ':t')
 endfunction
 
 function! s:jumpToTab(line)
-    let pair = split(a:line, ' ')
-    let cmd = pair[0].'gt'
-    execute 'normal' cmd
+  let pair = split(a:line, ' ')
+  let cmd = pair[0].'gt'
+  execute 'normal' cmd
 endfunction
 
 nnoremap <silent> <Leader>t :call fzf#run({

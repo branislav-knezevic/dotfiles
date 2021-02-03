@@ -19,8 +19,8 @@ alias cdd="cd ~/Projects/Private/dotfiles/"
 # alias cdau="cd ~/Projects/vsts/Acronis/Acronis.Kaseya.UI/"
 # alias cdah="cd ~/Projects/vsts/Acronis/helper_files/"
 # alias cdak="cd ~/Projects/acronis/ci-kaseya-bk/"
-alias cdr="cd ~/Projects/vsts/rnd_migration_tool/"
-alias cdrd="cd ~/Projects/vsts/rnd_migration_tool/DevOps/"
+alias cdn="cd ~/Projects/vsts/NetNation_migration_tool/"
+alias cdnd="cd ~/Projects/vsts/NetNation_migration_tool/DevOps/"
 
 # abbrevations for apps 
 alias vimf="vifm"

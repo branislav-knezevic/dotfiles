@@ -1,7 +1,5 @@
 # Custom functions
 
-## custom functions
-
 # open a webpage to create a pull request form the current branch
 gpr() {
   if [ $? -eq 0 ]; then
@@ -26,5 +24,11 @@ mdc(){
 # edit dotfiles
 dotfiles(){
   cd ~/Projects/Private/dotfiles
+  vim
+}
+
+# for editing and searching notes
+notes(){
+  cd ~/Projects/Private/various_notes
   vim
 }

@@ -24,10 +24,12 @@ setopt share_history # setopt inc_append_history
 git config --global push.default current
 
 # enable fuzzy finder
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-  # export FZF_DEFAULT_OPS="--extended"
-  export FZF_DEFAULT_COMMAND="fd --type f"
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_OPS"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPS="--extended"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_OPTS='--preview="bat --style=numbers --color=always --line-range :500 {}"'
+# export FZF_CTRL_T_OPTS='--preview="bat --color=always {}"'
+export FZF_CTRL_T_COMMAND='fd --hidden --type f'
 
 # Functions
   # Loop a command and show the output in vim
