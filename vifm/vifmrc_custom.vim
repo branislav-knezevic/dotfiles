@@ -13,9 +13,12 @@ fileviewer *[^/] env -uCOLORTERM bat --theme=DarkNeon --color always --wrap neve
 " Mappings
 
 " Manage splits
-nnoremap o :only<cr>
+nnoremap O :only<cr>
 nnoremap \ :vsplit<cr>
 nnoremap - :split<cr>
+
+" Alternative for file/dir opening
+nnoremap o l
 
 " Mappings for faster renaming
 nnoremap r cw<c-a>
@@ -33,11 +36,13 @@ nnoremap V :!less %f<cr>
 nnoremap <space> :select<cr>
 
 " directory shortcuts
-nnoremap gh :cd<cr>
-nnoremap gt :cd /tmp<cr>
+mark h ~
+mark t /tmp
+mark p ~/Projects
+mark d ~/Projects/Private/dotfiles
+mark r /
 
-nnoremap gp :cd ~/Projects<cr>
-nnoremap gpa :cd ~/Projects/acronis<cr>
+"these are left as mapping as mark only supports one character
 nnoremap gpg :cd ~/Projects/git<cr>
 nnoremap gpp :cd ~/Projects/Private<cr>
 nnoremap gpt :cd ~/Projects/Testing<cr>

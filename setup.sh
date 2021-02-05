@@ -108,6 +108,12 @@ printf "source ~/.dotfiles/zsh/zshrc_manager.sh" > ~/.zshrc
 printf "source ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 printf "source ~/.dotfiles/vifm/vifmrc.vim" > ~/.config/vifm/vifmrc
+# set colorschemes for vifm
+printf "source ~/.dotfiles/vifm/colorschemes/desertdark.vim" > ~/.config/vifm/colors/desertdark.vifm
+printf "source ~/.dotfiles/vifm/colorschemes/gruvbox.vim" > ~/.config/vifm/colors/gruvbox.vifm
+printf "source ~/.dotfiles/vifm/colorschemes/onedark.vim" > ~/.config/vifm/colors/onedark.vifm
+printf "source ~/.dotfiles/vifm/colorschemes/zenburn.vim" > ~/.config/vifm/colors/zenburn.vifm
+
 
 echo "Installing dependency software..."
 check_for_software curl
