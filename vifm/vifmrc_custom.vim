@@ -28,7 +28,7 @@ nnoremap mf :touch<space>
 nnoremap md :mkdir<space>
 
 " Vimf window
-nnoremap q :q<cr>
+nnoremap Q :q<cr>
 nnoremap x :wq<cr>
 nnoremap V :!less %f<cr>
 
