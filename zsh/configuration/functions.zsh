@@ -32,3 +32,7 @@ notes(){
   cd ~/Projects/Private/various_notes
   vim
 }
+
+oldhist(){
+  less ~/.zsh_history_thinkpad | fzf
+}
