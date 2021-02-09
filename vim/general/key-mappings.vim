@@ -110,6 +110,19 @@ vnoremap . :normal .<cr>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" set autocomlete movement to j/k
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+" set autocomlete movement to ctrl+h/j/k/l
+" down
+inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<C-j>"
+" up
+inoremap <expr> <C-k> pumvisible() ? "<C-p>" :"<C-k>"
+" select
+inoremap <expr> <C-l> pumvisible() ? "<C-y>" :"<C-l>"
+inoremap <expr> <Tab> pumvisible() ? "<C-y>" :"<Tab>"
+" cancel - it won't work with ctrl-h
+" inoremap <expr> <C-h> pumvisible() ? "<C-e>" :"<C-h>"
+
+" these below were the old mappings which jused just j/k
+" inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+" inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+

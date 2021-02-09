@@ -23,6 +23,12 @@ Plug 'mrk21/yaml-vim'
 " Syntax
 "Plug 'sheerun/vim-polyglot'
 
+" Dockerfile syntax
+Plug 'ekalinin/Dockerfile.vim'
+
+" Automatically show Vim's complete menu while typing
+Plug 'vim-scripts/AutoComplPop'
+
 " Linting
 Plug 'dense-analysis/ale'
 
@@ -63,6 +69,7 @@ Plug 'benmills/vimux'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'masukomi/vim-markdown-folding'
 
+" adding new line/indent/document objects
 " this is needed for the three below plugins
 Plug 'kana/vim-textobj-user'
 " line as text object
@@ -92,9 +99,6 @@ Plug 'christoomey/vim-system-copy'
 
 " JSON 
 Plug 'elzr/vim-json', { 'for': 'json' }
-
-" Dockerfile syntax
-Plug 'ekalinin/Dockerfile.vim'
 
 " NERDTree 
 Plug 'AndrewRadev/andrews_nerdtree.vim'

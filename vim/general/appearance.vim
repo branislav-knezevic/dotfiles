@@ -24,9 +24,14 @@ set updatetime=300
 set signcolumn=yes
 set shortmess+=c
 
+" Autocomplete
+set complete+=kspell " needed for autocomplete popup
+set completeopt=menuone,longest " needed for autocomplete
+set shortmess+=c " related to autocomplete, disables the menu which shows how many matchings are there
+
 " Tab control
 " so ~/.dotfiles/vim/sleuth.vim " for some reason this was here and not as tpope/sleuth plugin
-"set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+" set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=2 " the visible width of tabs
 set softtabstop=0 " edit as if the tabs are 4 characters wide
 set shiftwidth=2 " number of spaces to use for indent and unindent
