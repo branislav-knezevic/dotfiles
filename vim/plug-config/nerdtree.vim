@@ -26,7 +26,7 @@ endfunction
 " toggle nerd tree
 nmap <silent> <leader>n :call ToggleNerdTree()<cr>
 " find the current file in nerdtree without needing to reload the drawer
-nmap <silent> <leader>z :NERDTreeFind<cr>
+nmap <silent> <leader>a :NERDTreeFind<cr>
 " toggle only Git edited files
 nmap <silent> gm :NERDTreeGitFilterToggle<CR>
 
@@ -52,7 +52,7 @@ let g:NERDTreeIndicatorMapCustom = {
 \ }
 
 " Start NERDTree and put the cursor back in the other window
-autocmd VimEnter * NERDTreeToggle | wincmd p
+" autocmd VimEnter * NERDTreeToggle | wincmd p
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |

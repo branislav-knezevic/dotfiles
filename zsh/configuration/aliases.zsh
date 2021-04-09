@@ -49,8 +49,15 @@ alias -g y="-o yaml"
 
 # terraform
 alias tf="terraform"
+alias tfi="terraform init"
 alias tfp="terraform plan"
 alias tfa="terraform apply"
+
+# terragrunt
+alias tg="terragruntj"
+alias tgi="terragrunt init"
+alias tgp="terragrunt plan"
+alias tga="terragrunt apply"
 
 # xsel
 alias -g Y='| xsel -ib'

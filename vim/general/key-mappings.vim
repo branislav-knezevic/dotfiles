@@ -54,7 +54,9 @@ inoremap <leader>x <ESC>:x<CR>
 nnoremap <leader>x :x<CR>
 
 " Tabs
-nnoremap <C-Tab> :tabnew<CR> 
+" for some reason alt or ctrl mapping doesn't work
+" nnoremap <silent> <A-Tab> :tabnew<CR> 
+nnoremap <leader>m :tabnew<CR> 
 nnoremap <Tab> :tabnext<CR> 
 nnoremap <S-Tab> :tabprevious<CR> 
 nnoremap <leader>1 :tabmove -<CR>
@@ -64,9 +66,9 @@ nnoremap <leader>2 :tabmove +<CR>
 " switch between current and last buffer
 nmap <leader>. <c-^>
 " go to next buffer
-nmap <leader>a :bp<CR>
+" nmap <leader>a :bp<CR>
 " go to previous buffer
-nmap <leader>s :bn<CR>
+" nmap <leader>s :bn<CR>
 " don't close the split when buffer is closed
 command Bd bp | sp | bn | bd
 nnoremap <leader>Q :Bd<CR>
@@ -81,9 +83,13 @@ map <silent> <C-k> <Plug>WinMoveUp
 map <silent> <C-l> <Plug>WinMoveRight
 " split resize
 nnoremap <leader>h :vertical resize -5<CR>
-nnoremap <leader>j :res -5<CR>
-nnoremap <leader>k :res +5<CR>
+" map <silent> <C-S-h> :vertical resize -5<CR>
+nnoremap <leader>j :resize -5<CR>
+" map <silent> <C-S-j> :resize -5<CR>
+nnoremap <leader>k :resize +5<CR>
+" map <silent> <C-S-k> :resize +5<CR>
 nnoremap <leader>l :vertical resize +5<CR>
+" map <silent> <C-S-l> :vertical resize +5<CR>
 
 nmap <silent> <C-z> <Plug>Zoom
 " nmap <leader>z <Plug>Zoom

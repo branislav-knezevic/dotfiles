@@ -10,6 +10,10 @@ endif
 "The following plugins will be installed
 call plug#begin('~/.vim/autoload')
 
+" =================================
+" visual
+" =================================
+
 " Coloschemes
 Plug 'doums/darcula'
 Plug 'morhetz/gruvbox'
@@ -32,23 +36,29 @@ Plug 'vim-scripts/AutoComplPop'
 " Linting
 Plug 'dense-analysis/ale'
 
-" integrate vim with git
-Plug 'tpope/vim-fugitive'
+" Mark indentation
+Plug 'Yggdroot/indentLine'
 
-" Visual
 " LOAD POWERLINE OR AIRLINE PLUGIN
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" better terminal integration
+" Auto close brackets
+Plug 'jiangmiao/auto-pairs'
+
+
+" =================================
+" integration
+" =================================
+
 " substitute, search, and abbreviate multiple variants of a word
 Plug 'tpope/vim-abolish'
 
-" Mark indentation
-Plug 'Yggdroot/indentLine'
-
 " easy commenting motions
 Plug 'tpope/vim-commentary'
+
+" integrate vim with git
+Plug 'tpope/vim-fugitive'
 
 " mappings which are simply short normal mode aliases for commonly used ex commands
 Plug 'tpope/vim-unimpaired'
@@ -99,6 +109,21 @@ Plug 'christoomey/vim-system-copy'
 
 " JSON 
 Plug 'elzr/vim-json', { 'for': 'json' }
+
+" All HashiCorp tools - terraform, packer, vault...
+Plug 'hashivim/vim-hashicorp-tools'
+
+" Terraform
+" Plug 'hashivim/vim-terraform'
+
+" Terragrunt
+Plug 'yorinasub17/vim-terragrunt'
+
+" Powershell
+Plug 'zigford/vim-powershell'
+
+" Vifm
+Plug 'vifm/vifm'
 
 " NERDTree 
 Plug 'AndrewRadev/andrews_nerdtree.vim'

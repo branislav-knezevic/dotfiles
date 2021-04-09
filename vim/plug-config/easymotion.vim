@@ -1,6 +1,8 @@
 " Config for easymotion vim plugin
 
-map m <Plug>(easymotion-prefix)
+" set easymotion to work with <leader>z
+map z <Plug>(easymotion-prefix)
+
 " let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " " Jump to anywhere you want with minimal keystrokes, with just one key binding.

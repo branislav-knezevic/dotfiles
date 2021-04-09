@@ -24,4 +24,4 @@ source ~/.dotfiles/vim/plug-config/nerdtree.vim
 source ~/.dotfiles/vim/plug-config/vim-json.vim
 source ~/.dotfiles/vim/plug-config/winmove.vim
 source ~/.dotfiles/vim/plug-config/zoom.vim
-
+source ~/.dotfiles/vim/plug-config/terraform.vim
