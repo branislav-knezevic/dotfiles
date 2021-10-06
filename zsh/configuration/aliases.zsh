@@ -55,10 +55,11 @@ alias tfa="terraform apply"
 
 # terragrunt
 alias tg="terragrunt"
-alias tgi="terragrunt init"
+# alias tgi="terragrunt init"
 alias tgp="terragrunt plan"
 alias tga="terragrunt apply"
 alias tgd="terragrunt destroy"
+alias tgo="terragrunt output"
 
 # xsel
 alias -g Y='| xsel -ib'
