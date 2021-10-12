@@ -79,6 +79,9 @@ Plug 'benmills/vimux'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'masukomi/vim-markdown-folding'
 
+" Markdown Table of contents
+Plug 'mzlogin/vim-markdown-toc'
+
 " adding new line/indent/document objects
 " this is needed for the three below plugins
 Plug 'kana/vim-textobj-user'
