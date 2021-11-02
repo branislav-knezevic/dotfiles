@@ -23,16 +23,28 @@ mdc(){
 
 # edit dotfiles
 dotfiles(){
-  cd ~/Projects/Private/dotfiles
+  cd ~/Projects/git/dotfiles/
   vim
 }
 
 # for editing and searching notes
 notes(){
-  cd ~/Projects/Private/various_notes
+  cd ~/Projects/git/various_notes
   vim
 }
 
 oldhist(){
   less ~/.zsh_history_thinkpad | fzf
+}
+
+# show listening ports on Mac
+# eg listening <app_name> or listening <port>
+listening() {
+  if [ $# -eq 0 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P
+  elif [ $# -eq 1 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+  else
+    echo "Usage: listening [pattern]"
+  fi
 }

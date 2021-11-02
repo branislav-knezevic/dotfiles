@@ -463,7 +463,7 @@ nnoremap <f8> :delete<cr>
 " ------------------------------------------------------------------------------
 
 " customizations
-source ~/Projects/Private/dotfiles/vifm/vifmrc_custom.vim
+source ~/Projects/git/dotfiles/vifm/vifmrc_custom.vim
 
 " ------------------------------------------------------------------------------
 

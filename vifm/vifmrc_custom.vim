@@ -40,9 +40,9 @@ mark h ~
 mark r /
 mark t /tmp
 mark p ~/Projects
-mark d ~/Projects/Private/dotfiles
-mark n ~/Projects/vsts/NetNation_migration_tool/DevOps/
-mark v ~/Projects/git/Virgin/Repositories/Infrastructure/terraform/
+mark d ~/Projects/git/dotfiles
+mark n ~/Projects/Private/DT/NetNation_migration_tool/DevOps/
+mark v ~/Projects/Private/DT/Virgin/Repositories/Infrastructure/terraform/
 
 "these are left as mapping as mark only supports one character
 nnoremap gpg :cd ~/Projects/git<cr>

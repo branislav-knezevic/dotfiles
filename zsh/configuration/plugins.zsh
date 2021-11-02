@@ -3,6 +3,7 @@
 
 plugins=(
   git
+  git-flow
   docker
   docker-compose
   tmux

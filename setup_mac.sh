@@ -1,3 +1,5 @@
+export DOTFILES_PATH=$(SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P  )")
+
 prompt_install() {
 	echo -n "$1 is not installed. Would you like to install it? (y/n) " >&2
 	old_stty_cfg=$(stty -g)
@@ -69,20 +71,17 @@ else
 	exit 0
 fi
 
-#git submodule update --init --recursive
-# add repo for guake install
-#sudo add-apt-repository ppa:linuxuprising/guake
-#sudo apt update
+git submodule update --init --recursive
 
 check_for_software zsh
 echo 
 check_for_software vim
+# make sure vim is at least version 8.2
+brew upgrade vim
 echo
 check_for_software tmux
 echo
 check_for_software vifm
-echo
-check_for_software guake
 echo
 
 check_default_shell
@@ -103,7 +102,7 @@ else
 fi
 
 echo "Creating links to dotfiles..."
-ln -s ~/Projects/Private/dotfiles ~/.dotfiles
+ln -s ${DOTFILES_PATH} ~/.dotfiles
 printf "source ~/.dotfiles/zsh/zshrc_manager.sh" > ~/.zshrc
 printf "source ~/.dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source ~/.dotfiles/tmux/tmux.conf" > ~/.tmux.conf
@@ -119,21 +118,18 @@ echo "Installing dependency software..."
 check_for_software curl
 check_for_software xsel
 check_for_software xclip
-check_for_software silversearcher-ag
+check_for_software the_silver_searcher
 check_for_software bat
-check_for_software fd-find
-check_for_software fonts-powerline
+check_for_software fd
+check_for_software ripgrep
 
-sudo snap install ripgrep --classic -y
-
-echo "Loading guake config..."
-guake --restore-preferences guake/guake-preferences
-
-echo "setting up bat/batcat link"
-sudo ln -s /usr/bin/batcat /usr/bin/bat
+echo "Setting up powerline fonts..."
+git clone https://github.com/powerline/fonts.git --depth=1
+bash fonts/install.sh
+rm -rf fonts
 
 echo "Adding necessary fonts for NERDTree..."
-sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /usr/share/fonts/truetype/dejavu
+sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /Library/Fonts/
 
 echo "Adding custom "Bungee" zsh theme..."
 cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
