@@ -32,18 +32,22 @@ export FZF_CTRL_T_OPTS='--preview="bat --style=numbers --color=always --line-ran
 export FZF_CTRL_T_COMMAND='fd --hidden --type f'
 
 # Functions
-  # Loop a command and show the output in vim
-  loop() {
-    echo ":cq to quit\n" > /tmp/log/output 
-    fc -ln -1 > /tmp/log/program
-    while true; do
-      cat /tmp/log/program >> /tmp/log/output ;
-      $(cat /tmp/log/program) |& tee -a /tmp/log/output ;
-      echo '\n' >> /tmp/log/output
-      vim + /tmp/log/output || break;
-      rm -rf /tmp/log/output
-    done;
-  }
+# Loop a command and show the output in vim
+loop() {
+  echo ":cq to quit\n" > /tmp/log/output 
+  fc -ln -1 > /tmp/log/program
+  while true; do
+    cat /tmp/log/program >> /tmp/log/output ;
+    $(cat /tmp/log/program) |& tee -a /tmp/log/output ;
+    echo '\n' >> /tmp/log/output
+    vim + /tmp/log/output || break;
+    rm -rf /tmp/log/output
+  done;
+}
+
+# Fix to get rid of "tk-WARNING **: Locale not supported by C library" error on a Mac
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Custom cd
 #chpwd() ls -l
