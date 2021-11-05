@@ -57,10 +57,13 @@ nnoremap <leader>x :x<CR>
 " for some reason alt or ctrl mapping doesn't work
 " nnoremap <silent> <A-Tab> :tabnew<CR> 
 nnoremap <leader>m :tabnew<CR> 
-nnoremap <Tab> :tabnext<CR> 
-nnoremap <S-Tab> :tabprevious<CR> 
-nnoremap <leader>1 :tabmove -<CR>
-nnoremap <leader>2 :tabmove +<CR>
+nnoremap <leader>2 :tabnext<CR>
+nnoremap <leader>1 :tabprevious<CR>
+" nnoremap <leader>1 :tabmove -<CR>
+" nnoremap <leader>2 :tabmove +<CR>
+" disabling tab shortcut as it overwridden ctrl+i
+" nnoremap <Tab> :tabnext<CR> 
+" nnoremap <S-Tab> :tabprevious<CR> 
 
 " Buffers
 " switch between current and last buffer
@@ -74,8 +77,9 @@ command Bd bp | sp | bn | bd
 nnoremap <leader>Q :Bd<CR>
 
 " Splits
-nnoremap <leader>\ :vsplit<CR>
-nnoremap <leader>- :split<CR>
+" these are commented out as they can be done with split movement
+" nnoremap <leader>\ :vsplit<CR>
+" nnoremap <leader>- :split<CR>
 " split movement
 map <silent> <C-h> <Plug>WinMoveLeft
 map <silent> <C-j> <Plug>WinMoveDown
@@ -84,9 +88,9 @@ map <silent> <C-l> <Plug>WinMoveRight
 " split resize
 nnoremap <leader>h :vertical resize -5<CR>
 " map <silent> <C-S-h> :vertical resize -5<CR>
-nnoremap <leader>j :resize -5<CR>
+nnoremap <leader>- :resize -10<CR>
 " map <silent> <C-S-j> :resize -5<CR>
-nnoremap <leader>k :resize +5<CR>
+nnoremap <leader>= :resize +10<CR>
 " map <silent> <C-S-k> :resize +5<CR>
 nnoremap <leader>l :vertical resize +5<CR>
 " map <silent> <C-S-l> :vertical resize +5<CR>
@@ -131,4 +135,26 @@ inoremap <expr> <Tab> pumvisible() ? "<C-y>" :"<Tab>"
 " inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 " inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
+" make Y behave like C or D
+nnoremap Y y$
 
+" Set search to always keep the text in the middle of the screen
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Adding breakpoints for undo
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Improving jumping
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" moving lines
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
