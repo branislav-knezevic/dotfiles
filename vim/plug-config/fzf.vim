@@ -32,7 +32,7 @@ endif
 nmap <silent> <leader>e :GFiles?<cr>
 nmap <silent> <leader>b :Buffers<cr>
 nmap <silent> <leader>f :FZF<cr>
-nmap <silent> <leader>g :Rg<cr>
+nmap <silent> <leader>s :Rg<cr>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
