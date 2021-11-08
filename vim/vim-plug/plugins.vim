@@ -140,6 +140,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-Plug 'stsewd/fzf-checkout'
+Plug 'stsewd/fzf-checkout.vim'
 
 call plug#end()
