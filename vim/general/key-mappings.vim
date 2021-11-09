@@ -1,13 +1,13 @@
 " Key mappings
 
 " set the map leader for more key combos
-let mapleader = ','
+let mapleader = " "
 
 " remap esc
 inoremap jk <esc>
 
 " ctrl-l to clear search highlighting
-nnoremap <space> :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
+nnoremap <leader>c :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
 
 " ctll-c to clear line numbers
 nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
@@ -42,7 +42,7 @@ nnoremap <leader>r :source ~/.vimrc<CR>
 " File and Window Mnagement
 inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>, :w<CR>
+nnoremap <leader><space> :w<CR>
 
 inoremap <leader>q <ESC>:q<CR>
 nnoremap <leader>q :q<CR>
@@ -56,7 +56,7 @@ nnoremap <leader>x :x<CR>
 " Tabs
 " for some reason alt or ctrl mapping doesn't work
 " nnoremap <silent> <A-Tab> :tabnew<CR> 
-nnoremap <leader>m :tabnew<CR> 
+nnoremap <leader>t :tabnew<CR> 
 nnoremap <leader>2 :tabnext<CR>
 nnoremap <leader>1 :tabprevious<CR>
 " nnoremap <leader>1 :tabmove -<CR>
@@ -88,9 +88,9 @@ map <silent> <C-l> <Plug>WinMoveRight
 " split resize
 nnoremap <leader>h :vertical resize -5<CR>
 " map <silent> <C-S-h> :vertical resize -5<CR>
-nnoremap <leader>- :resize -10<CR>
+nnoremap <leader>j :resize -10<CR>
 " map <silent> <C-S-j> :resize -5<CR>
-nnoremap <leader>= :resize +10<CR>
+nnoremap <leader>k :resize +10<CR>
 " map <silent> <C-S-k> :resize +5<CR>
 nnoremap <leader>l :vertical resize +5<CR>
 " map <silent> <C-S-l> :vertical resize +5<CR>
@@ -110,8 +110,8 @@ xnoremap i% GoggV
 onoremap i% :normal vi%<CR>
 
 " remove extra whitespace
-nmap <leader><space> :%s/\s\+$<cr>
-nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
+" nmap <leader>c :%s/\s\+$<cr>
+" nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
 
 " enable . command in visual mode
 vnoremap . :normal .<cr>
@@ -156,5 +156,6 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " moving lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-nnoremap <leader>k :m .-2<CR>==
-nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>[ :m .-2<CR>==
+nnoremap <leader>] :m .+1<CR>==
+

@@ -97,7 +97,7 @@ function! s:jumpToTab(line)
   execute 'normal' cmd
 endfunction
 
-nnoremap <silent> <Leader>t :call fzf#run({
+nnoremap <silent> <Leader>y :call fzf#run({
 \   'source':  reverse(map(range(1, tabpagenr('$')), 'v:val." "." ".TabName(v:val)')),
 \   'sink':    function('<sid>jumpToTab'),
 \   'down':    tabpagenr('$') + 2

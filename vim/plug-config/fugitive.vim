@@ -1,5 +1,6 @@
 " fugitive plug config
 
+nmap <leader>g :G<CR><C-w>15-
 nmap <leader>gs :G<CR><C-w>15-
 nmap <leader>gp :G push<CR>
 nmap <leader>gl :G pull<CR>
