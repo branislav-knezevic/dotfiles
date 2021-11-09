@@ -37,13 +37,13 @@ alias ksys='kubectl -n kube-system'
 #alias kti="kubectl -n ticketclever-int"
 #alias kts="kubectl -n ticketclever-stg"
 #alias ktp="kubectl -n ticketclever-prd"
-alias kad="kubectl --context acronis -n dev"
-alias kas="kubectl --context acronis -n staging"
-alias kap="kubectl --context acronis -n production"
-alias kam="kubectl --context acronis -n monitoring"
-alias kat="kubectl --context acronis -n test"
-alias kau="kubectl --context acronis -n uat"
-alias kaa="kubectl --kubeconfig ~/.kube/config_acronis -n kaseya-internal"
+# alias kad="kubectl --context acronis -n dev"
+# alias kas="kubectl --context acronis -n staging"
+# alias kap="kubectl --context acronis -n production"
+# alias kam="kubectl --context acronis -n monitoring"
+# alias kat="kubectl --context acronis -n test"
+# alias kau="kubectl --context acronis -n uat"
+# alias kaa="kubectl --kubeconfig ~/.kube/config_acronis -n kaseya-internal"
 alias -g yl="-o yaml | less"
 alias -g y="-o yaml"
 
@@ -61,7 +61,7 @@ alias tga="terragrunt apply"
 alias tgd="terragrunt destroy"
 alias tgo="terragrunt output"
 
-# xsel
+# xsel - yank output
 alias -g Y='| xsel -ib'
 
 # keeper
@@ -82,3 +82,6 @@ alias preview="fzf --preview 'bat --color \"always\" --line-range 0:30 {}'"
 alias myip="curl http://ipecho.net/plain; echo"
 alias dirs='dirs -v | head -10'
 alias usage='du -h -d1'
+
+# Symphony specific
+alias plt-login="/Users/bungee/Projects/git-symphony/Platoon/platoon-gateway-service/environment/scripts/aws-login.sh branislav.knezevic@symphony.is"
