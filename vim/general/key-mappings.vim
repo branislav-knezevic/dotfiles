@@ -34,7 +34,7 @@ set pastetoggle=<leader>v
 nnoremap <leader>r :source ~/.vimrc<CR>
 
 " File and Window Mnagement
-inoremap <leader>w <Esc>:w<CR>
+inoremap <leader><space>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader><space> :w<CR>
 
