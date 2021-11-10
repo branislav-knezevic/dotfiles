@@ -53,7 +53,7 @@ export LANG=en_US.UTF-8
 #chpwd() ls -l
 
 # For vim mappings: 
-  stty -ixon
+stty -ixon
 
 # Completions
 # These are all the plugin options available: https://github.com/robbyrussell/oh-my-zsh/tree/291e96dcd034750fbe7473482508c08833b168e3/plugins
@@ -62,8 +62,18 @@ export LANG=en_US.UTF-8
 # For help create an issue at github.com/parth/dotfiles
 
 # Basic auto/tab complete:
-  autoload -U compinit
-  zstyle ':completion:*' menu select
-  zmodload zsh/complist
-  compinit
-  _comp_options+=(globdots)		# Include hidden fil
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden fil
+
+# vi mode for terminal
+# set -o vi
+# bindkey vi-command ".":insert-last-argument
+# bindkey vi-insert "\C-l.":clear-screen
+# bindkey vi-insert "\C-a.":beginning-of-line
+# bindkey vi-insert "\C-e.":end-of-line
+# bindkey vi-insert "\C-w.":backward-kill-word
+# bindkey vi-insert "\C-p.":previous-history
+# bindkey vi-insert "\C-n.":next-history

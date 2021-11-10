@@ -6,7 +6,7 @@ let mapleader = " "
 " remap esc
 inoremap jk <esc>
 
-" ctrl-l to clear search highlighting
+" clear search highlighting
 nnoremap <leader>c :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
 
 " ctll-c to clear line numbers
@@ -14,12 +14,6 @@ nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers tur
 
 " ctrl-n to show line number and relativeline number
 nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>¬
-
-" Easier line movement
-" nnoremap H 0
-" nnoremap L $
-" nnoremap J G
-" nnoremap K gg
 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
@@ -55,15 +49,9 @@ nnoremap <leader>x :x<CR>
 
 " Tabs
 " for some reason alt or ctrl mapping doesn't work
-" nnoremap <silent> <A-Tab> :tabnew<CR> 
 nnoremap <leader>t :tabnew<CR> 
 nnoremap <leader>2 :tabnext<CR>
 nnoremap <leader>1 :tabprevious<CR>
-" nnoremap <leader>1 :tabmove -<CR>
-" nnoremap <leader>2 :tabmove +<CR>
-" disabling tab shortcut as it overwridden ctrl+i
-" nnoremap <Tab> :tabnext<CR> 
-" nnoremap <S-Tab> :tabprevious<CR> 
 
 " Buffers
 " switch between current and last buffer
@@ -77,33 +65,19 @@ command Bd bp | sp | bn | bd
 nnoremap <leader>Q :Bd<CR>
 
 " Splits
-" these are commented out as they can be done with split movement
-" nnoremap <leader>\ :vsplit<CR>
-" nnoremap <leader>- :split<CR>
 " split movement
-map <silent> <C-h> <Plug>WinMoveLeft
-map <silent> <C-j> <Plug>WinMoveDown
-map <silent> <C-k> <Plug>WinMoveUp
+map <leader>h <Plug>WinMoveLeft
+map <leader>j <Plug>WinMoveDown
+map <leader>k <Plug>WinMoveUp
+map <leader>l <Plug>WinMoveRight
 map <silent> <C-l> <Plug>WinMoveRight
 " split resize
-nnoremap <leader>h :vertical resize -5<CR>
-" map <silent> <C-S-h> :vertical resize -5<CR>
-nnoremap <leader>j :resize -10<CR>
-" map <silent> <C-S-j> :resize -5<CR>
-nnoremap <leader>k :resize +10<CR>
-" map <silent> <C-S-k> :resize +5<CR>
-nnoremap <leader>l :vertical resize +5<CR>
-" map <silent> <C-S-l> :vertical resize +5<CR>
-
-nmap <silent> <C-z> <Plug>Zoom
-" nmap <leader>z <Plug>Zoom
-
-" Create line text object
-" commented out as it is done via plugin
-" xnoremap il g_o^
-" onoremap il :normal vil<CR>
-" xnoremap al $o^
-" onoremap al :normal val<CR>
+map <silent> <C-h> :vertical resize -5<CR>
+map <silent> <C-j> :resize -5<CR>
+map <silent> <C-k> :resize +5<CR>
+map <silent> <C-l> :vertical resize +5<CR>
+" split zoom
+map <leader>z <Plug>Zoom
 
 " crude buffer text object
 xnoremap i% GoggV
@@ -131,10 +105,6 @@ inoremap <expr> <Tab> pumvisible() ? "<C-y>" :"<Tab>"
 " cancel - it won't work with ctrl-h
 " inoremap <expr> <C-h> pumvisible() ? "<C-e>" :"<C-h>"
 
-" these below were the old mappings which jused just j/k
-" inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-" inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
-
 " make Y behave like C or D
 nnoremap Y y$
 
@@ -158,4 +128,3 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 nnoremap <leader>[ :m .-2<CR>==
 nnoremap <leader>] :m .+1<CR>==
-

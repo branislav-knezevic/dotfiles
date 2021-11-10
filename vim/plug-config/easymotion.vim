@@ -1,7 +1,7 @@
 " Config for easymotion vim plugin
 
-" set easymotion to work with <leader>z
-map z <Plug>(easymotion-prefix)
+" set easymotion to work with <leader>m
+map m <Plug>(easymotion-prefix)
 
 " let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
