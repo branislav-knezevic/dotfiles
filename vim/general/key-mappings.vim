@@ -38,13 +38,13 @@ inoremap <leader><space>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader><space> :w<CR>
 
-inoremap <leader>q <ESC>:q<CR>
+inoremap <leader><space>q <ESC>:q<CR>
 nnoremap <leader>q :q<CR>
 
-inoremap <leader>q! <ESC>:q!<CR>
+inoremap <leader><space>q! <ESC>:q!<CR>
 nnoremap <leader>q! :q!<CR>
 
-inoremap <leader>x <ESC>:x<CR>
+inoremap <leader><space>x <ESC>:x<CR>
 nnoremap <leader>x :x<CR>
 
 " Tabs
