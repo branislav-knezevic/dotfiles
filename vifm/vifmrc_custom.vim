@@ -39,7 +39,8 @@ nnoremap <space> :select<cr>
 mark h ~
 mark r /
 mark t /tmp
-mark p ~/Projects/git-symphony/Platoon/
+mark p ~/Projects/
+mark s ~/Projects/git-symphony/Platoon/
 mark d ~/Projects/git-symphony/Platoon/platoon-devops-scripts/
 
 "these are left as mapping as mark only supports one character
