@@ -15,7 +15,8 @@ source ~/.dotfiles/vim/themes/theme.vim
 source ~/.dotfiles/vim/themes/airline.vim
 
 " Plugin Configuration
-source ~/.dotfiles/vim/plug-config/ale.vim
+" source ~/.dotfiles/vim/plug-config/ale.vim
+source ~/.dotfiles/vim/plug-config/coc.vim
 source ~/.dotfiles/vim/plug-config/andrews_nerdtree.vim
 source ~/.dotfiles/vim/plug-config/fzf.vim
 source ~/.dotfiles/vim/plug-config/easymotion.vim

@@ -10,7 +10,7 @@ inoremap jk <esc>
 nnoremap <leader>c :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
 
 " ctll-c to clear line numbers
-nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
+nnoremap <C-m> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
 
 " ctrl-n to show line number and relativeline number
 nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>¬
@@ -34,18 +34,23 @@ set pastetoggle=<leader>v
 nnoremap <leader>r :source ~/.vimrc<CR>
 
 " File and Window Mnagement
-inoremap <leader><space>w <Esc>:w<CR>
+" inoremap <leader><space>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader><space> :w<CR>
 
-inoremap <leader><space>q <ESC>:q<CR>
+" inoremap <leader><space>q <ESC>:q<CR>
 nnoremap <leader>q :q<CR>
 
-inoremap <leader><space>q! <ESC>:q!<CR>
+" inoremap <leader><space>q! <ESC>:q!<CR>
 nnoremap <leader>q! :q!<CR>
 
-inoremap <leader><space>x <ESC>:x<CR>
+" inoremap <leader><space>x <ESC>:x<CR>
 nnoremap <leader>x :x<CR>
+
+" change current word to UPPERCASE
+nnoremap <leader>u gUiw
+" change current word to lowercase
+nnoremap <leader>i guiw
 
 " Tabs
 " for some reason alt or ctrl mapping doesn't work
@@ -70,7 +75,6 @@ map <leader>h <Plug>WinMoveLeft
 map <leader>j <Plug>WinMoveDown
 map <leader>k <Plug>WinMoveUp
 map <leader>l <Plug>WinMoveRight
-map <silent> <C-l> <Plug>WinMoveRight
 " split resize
 map <silent> <C-h> :vertical resize -5<CR>
 map <silent> <C-j> :resize -5<CR>
@@ -101,7 +105,7 @@ inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "<C-p>" :"<C-k>"
 " select
 inoremap <expr> <C-l> pumvisible() ? "<C-y>" :"<C-l>"
-inoremap <expr> <Tab> pumvisible() ? "<C-y>" :"<Tab>"
+" inoremap <expr> <Tab> pumvisible() ? "<C-y>" :"<Tab>"
 " cancel - it won't work with ctrl-h
 " inoremap <expr> <C-h> pumvisible() ? "<C-e>" :"<C-h>"
 

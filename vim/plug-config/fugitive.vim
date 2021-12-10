@@ -3,7 +3,9 @@
 nmap <leader>g :G<CR><C-w>15-
 nmap <leader>gs :G<CR><C-w>15-
 nmap <leader>gp :G push<CR>
+nmap <leader>gf :G fetch<CR>
 nmap <leader>gl :G pull<CR>
+nmap <leader>gb :G blame<CR>
 nnoremap <leader>gc :G checkout<CR>
 
 " merging pull requests

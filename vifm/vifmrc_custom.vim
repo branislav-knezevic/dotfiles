@@ -39,10 +39,8 @@ nnoremap <space> :select<cr>
 mark h ~
 mark r /
 mark t /tmp
-mark p ~/Projects
-mark d ~/Projects/git/dotfiles
-mark n ~/Projects/Private/DT/NetNation_migration_tool/DevOps/
-mark v ~/Projects/Private/DT/Virgin/Repositories/Infrastructure/terraform/
+mark p ~/Projects/git-symphony/Platoon/
+mark d ~/Projects/git-symphony/Platoon/platoon-devops-scripts/
 
 "these are left as mapping as mark only supports one character
 nnoremap gpg :cd ~/Projects/git<cr>

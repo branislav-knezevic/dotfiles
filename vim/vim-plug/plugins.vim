@@ -34,7 +34,8 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-scripts/AutoComplPop'
 
 " Linting
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Mark indentation
 Plug 'Yggdroot/indentLine'
