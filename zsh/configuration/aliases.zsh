@@ -19,19 +19,11 @@ if [ /snap/bin/kubectl ]; then
   source <(kubectl completion zsh); 
 fi
 alias ksys='kubectl -n kube-system'
-#alias ki="kubectl --context test -n integration"
-#alias ks="kubectl --context test -n staging"
-#alias kp="kubectl --context prod -n prod"
-#alias kti="kubectl -n ticketclever-int"
-#alias kts="kubectl -n ticketclever-stg"
-#alias ktp="kubectl -n ticketclever-prd"
-# alias kad="kubectl --context acronis -n dev"
-# alias kas="kubectl --context acronis -n staging"
-# alias kap="kubectl --context acronis -n production"
-# alias kam="kubectl --context acronis -n monitoring"
-# alias kat="kubectl --context acronis -n test"
-# alias kau="kubectl --context acronis -n uat"
-# alias kaa="kubectl --kubeconfig ~/.kube/config_acronis -n kaseya-internal"
+alias kpd="kubectl --context arn:aws:eks:eu-west-1:415333511749:cluster/develop-cluster -n develop"
+alias kps="kubectl --context arn:aws:eks:eu-west-1:415333511749:cluster/stage-cluster -n stage"
+alias kpt="kubectl --context arn:aws:eks:eu-west-1:415333511749:cluster/test-cluster -n test"
+alias kpu="kubectl --context arn:aws:eks:eu-west-1:415333511749:cluster/uat-cluster -n uat"
+alias kpp="kubectl --context arn:aws:eks:eu-west-1:415333511749:cluster/prod-cluster -n prod"
 alias -g yl="-o yaml | less"
 alias -g y="-o yaml"
 
@@ -45,7 +37,7 @@ alias tfs="terraform state list"
 
 # terragrunt
 alias tg="terragrunt"
-# alias tgi="terragrunt init"
+alias tgi="terragrunt init"
 alias tgp="terragrunt plan"
 alias tga="terragrunt apply"
 alias tgd="terragrunt destroy"
@@ -74,4 +66,4 @@ alias dirs='dirs -v | head -10'
 alias usage='du -h -d1'
 
 # Symphony specific
-alias plt-login="/Users/bungee/Projects/git-symphony/Platoon/platoon-gateway-service/environment/scripts/aws-login.sh branislav.knezevic@symphony.is"
+alias plt-login="/Users/bungee/Projects/git-symphony/Platoon/p4a/platoon-gateway-service/environment/scripts/aws-login.sh branislav.knezevic@symphony.is"

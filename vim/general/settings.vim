@@ -44,3 +44,5 @@ set clipboard=unnamed
 set splitright
 set splitbelow
 
+" increased redrawtime to fix syntax highlighting 
+set redrawtime=10000

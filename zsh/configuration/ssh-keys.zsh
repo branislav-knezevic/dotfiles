@@ -1,5 +1,8 @@
 #!/bin/bash
 
 # add following ssh keys on zsh start
-ssh-add ~/.ssh/laptop_migration/mig_key > /dev/null 2>&1
-ssh-add ~/.ssh/devtech_keys/id_rsa_devtech > /dev/null 2>&1
+ssh-add ~/.ssh/git-symphony/bungee-symphony-pem > /dev/null 2>&1
+ssh-add ~/.ssh/git-symphony/bungee-symphony > /dev/null 2>&1
+ssh-add ~/.ssh/platoon/bk-platoon-aws.pem > /dev/null 2>&1
+# ssh-add ~/.ssh/platoon/bungee-platoon-aws > /dev/null 2>&1
+ssh-add ~/.ssh/platoon/jenkins-agent > /dev/null 2>&1

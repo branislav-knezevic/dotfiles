@@ -17,6 +17,7 @@ ZSH_THEME="bungee"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
+HISTCONTROL=ignorespace
 SAVEHIST=100000
 setopt inc_append_history # To save every command before it is executed 
 setopt share_history # setopt inc_append_history

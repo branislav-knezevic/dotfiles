@@ -5,15 +5,16 @@ let mapleader = " "
 
 " remap esc
 inoremap jk <esc>
+vnoremap jk <esc>
 
 " clear search highlighting
-nnoremap <leader>c :nohl<CR><C-l>:echo "Search Cleared"<CR>¬
+nnoremap <leader>c :nohl<CR><C-l>:echo "Search Cleared"<CR>
 
-" ctll-c to clear line numbers
-nnoremap <C-m> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
+" ctrl-b to clear line numbers
+" nnoremap <C-k> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
 
 " ctrl-n to show line number and relativeline number
-nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>¬
+nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>
 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
@@ -48,15 +49,20 @@ nnoremap <leader>q! :q!<CR>
 nnoremap <leader>x :x<CR>
 
 " change current word to UPPERCASE
-nnoremap <leader>u gUiw
+nnoremap <leader>u gUiwe
 " change current word to lowercase
-nnoremap <leader>i guiw
+nnoremap <leader>i guiwe
 
 " Tabs
 " for some reason alt or ctrl mapping doesn't work
 nnoremap <leader>t :tabnew<CR> 
-nnoremap <leader>2 :tabnext<CR>
-nnoremap <leader>1 :tabprevious<CR>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <C-2> :tabnext<CR>
+nnoremap <C-1> :tabprevious<CR>
 
 " Buffers
 " switch between current and last buffer
@@ -71,8 +77,8 @@ nnoremap <leader>Q :Bd<CR>
 
 " Splits
 " split movement
-map <leader>h <Plug>WinMoveLeft
 map <leader>j <Plug>WinMoveDown
+map <leader>h <Plug>WinMoveLeft
 map <leader>k <Plug>WinMoveUp
 map <leader>l <Plug>WinMoveRight
 " split resize
@@ -100,6 +106,7 @@ nnoremap <C-y> 3<C-y>
 
 " set autocomlete movement to ctrl+h/j/k/l
 " down
+let g:BASH_Ctrl_j = 'off'
 inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<C-j>"
 " up
 inoremap <expr> <C-k> pumvisible() ? "<C-p>" :"<C-k>"
@@ -111,6 +118,9 @@ inoremap <expr> <C-l> pumvisible() ? "<C-y>" :"<C-l>"
 
 " make Y behave like C or D
 nnoremap Y y$
+
+" select text till the end of the line
+nnoremap <leader>p v$h
 
 " Set search to always keep the text in the middle of the screen
 nnoremap n nzzzv

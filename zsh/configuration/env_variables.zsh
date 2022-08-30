@@ -13,3 +13,6 @@ export GOPATH=~/projects
 # Bat theme used for FZF
 # export BAT_THEME=DarkNeon
 export BAT_THEME=base16
+
+# Settings for Groovy
+export GROOVY_HOME=/usr/local/opt/groovy/libexec

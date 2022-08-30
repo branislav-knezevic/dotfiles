@@ -20,6 +20,9 @@ Plug 'morhetz/gruvbox'
 " Plug 'phanviet/vim-monokai-pro'
 " Plug 'joshdick/onedark.vim'
 
+" Helm templates
+Plug 'towolf/vim-helm'
+
 " yaml syntax
 Plug 'mrk21/yaml-vim'
 "Plug 'stephpy/vim-yaml'
@@ -115,10 +118,13 @@ Plug 'christoomey/vim-system-copy'
 Plug 'elzr/vim-json', { 'for': 'json' }
 
 " All HashiCorp tools - terraform, packer, vault...
-Plug 'hashivim/vim-hashicorp-tools'
+" Plug 'hashivim/vim-hashicorp-tools'
 
 " Terraform
-" Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-terraform'
+
+" HCL formatting
+Plug 'fatih/vim-hclfmt'
 
 " Terragrunt
 Plug 'yorinasub17/vim-terragrunt'

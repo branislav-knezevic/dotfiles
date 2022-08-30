@@ -1,11 +1,15 @@
 " fugitive plug config
 
-nmap <leader>g :G<CR><C-w>15-
-nmap <leader>gs :G<CR><C-w>15-
+nmap <leader>g :G<CR><C-w>20-
+nmap <leader>gs :G<CR><C-w>20-
+nmap <leader>ga :G add .<CR>
+nmap <leader>gm :G commit<CR>
 nmap <leader>gp :G push<CR>
 nmap <leader>gf :G fetch<CR>
 nmap <leader>gl :G pull<CR>
-nmap <leader>gb :G blame<CR>
+nmap <leader>gB :G blame<CR>
+nmap <leader>gb :GBranches <CR>
+nmap <leader>gt :GTags <CR>
 nnoremap <leader>gc :G checkout<CR>
 
 " merging pull requests
