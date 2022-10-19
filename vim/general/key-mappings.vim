@@ -71,11 +71,18 @@ nmap <leader>. <c-^>
 " nmap <leader>a :bp<CR>
 " go to previous buffer
 " nmap <leader>s :bn<CR>
+
 " don't close the split when buffer is closed
 command Bd bp | sp | bn | bd
 nnoremap <leader>Q :Bd<CR>
 
 " Splits
+
+" create hozirontal split
+map <leader>\ :vsplit<CR>
+" create hozirontal split
+map <leader>- :split<CR>
+
 " split movement
 map <leader>j <Plug>WinMoveDown
 map <leader>h <Plug>WinMoveLeft
@@ -142,3 +149,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 nnoremap <leader>[ :m .-2<CR>==
 nnoremap <leader>] :m .+1<CR>==
+
+" saved macros
+" this one is used for variables in values.yaml
+let @s = 'fn~bivariablejkjciwawsSecretNamejkwwdf9df:$bbDj0'

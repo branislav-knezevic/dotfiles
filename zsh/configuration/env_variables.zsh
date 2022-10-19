@@ -16,3 +16,6 @@ export BAT_THEME=base16
 
 # Settings for Groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+# Settings for Krew (k8s plugin manager)
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
