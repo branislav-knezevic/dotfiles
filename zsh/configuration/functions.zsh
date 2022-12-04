@@ -24,19 +24,19 @@ mdc(){
 # edit dotfiles
 dotfiles(){
   cd ~/Projects/git/dotfiles/
-  vim
+  nvim
 }
 
 # for editing and searching notes
 notes(){
   cd ~/Projects/git/various_notes
-  vim
+  nvim
 }
 
 # for staff eng things
 people(){
   cd ~/Projects/git-symphony/people/
-  vim
+  nvim
 }
 
 oldhist(){

@@ -1,5 +1,6 @@
 " Appearance 
 
+syntax on " enable code syntax
 set number " show line numbers
 set relativenumber " show relative numbers for easier movement between the lines
 set wrap " turn on line wrapping
@@ -74,3 +75,7 @@ endif
 
 " highlight conflicts
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" highlight where the coursor is
+set cursorline
+set cursorcolumn

@@ -61,16 +61,16 @@ nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
 nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
-nnoremap <C-2> :tabnext<CR>
-nnoremap <C-1> :tabprevious<CR>
+nnoremap <leader>t; :tabnext<CR>
+nnoremap <leader>t, :tabprevious<CR>
 
 " Buffers
 " switch between current and last buffer
 nmap <leader>. <c-^>
 " go to next buffer
-" nmap <leader>a :bp<CR>
+nnoremap <leader>; :bp<CR>
 " go to previous buffer
-" nmap <leader>s :bn<CR>
+nnoremap <leader>, :bn<CR>
 
 " don't close the split when buffer is closed
 command Bd bp | sp | bn | bd
