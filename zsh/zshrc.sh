@@ -5,8 +5,6 @@ source ~/.dotfiles/zsh/configuration/general.zsh
 
 # Load variables
 source ~/.dotfiles/zsh/configuration/env_variables.zsh
-# Load sensitive variables
-source ~/.dotfiles/zsh/configuration/sensitive_variables.zsh
 
 # key-mappings
 source ~/.dotfiles/zsh/configuration/key-mappings.zsh

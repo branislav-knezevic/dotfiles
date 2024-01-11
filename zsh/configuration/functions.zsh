@@ -27,6 +27,12 @@ dotfiles(){
   nvim
 }
 
+# edit dotfiles
+nvim-config(){
+  cd ~/.config/nvim/
+  nvim
+}
+
 # for editing and searching notes
 notes(){
   cd ~/Projects/git/various_notes
@@ -59,3 +65,6 @@ listening() {
   fi
 }
 
+greb() {
+  git rebase -i HEAD~"${1}"
+}

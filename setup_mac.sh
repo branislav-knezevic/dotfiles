@@ -137,5 +137,8 @@ cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
 echo "Add proper kubectl zsh plugin"
 /bin/cp -rf custom/k8s_plugin/k8s.plugin.zsh zsh/plugins/oh-my-zsh/plugins/kubectl/kubectl.plugin.zsh
 
+echo "Install themes for tmux"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 echo
 echo "Please log out and log back in for default shell to be initialized."

@@ -6,7 +6,7 @@ plugins=(
   git-flow
   docker
   docker-compose
-  tmux
+  # tmux
   history
   zsh-autosuggestions
   terraform
