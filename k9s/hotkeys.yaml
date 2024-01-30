@@ -1,0 +1,26 @@
+hotKeys:
+  # Swith to active view in Develop context
+  shift-1:
+    shortCut: Shift-1
+    description: Develop env
+    command: 'ctx arn:aws:eks:us-west-2:925895137947:cluster/platoon-develop-cluster'
+  # Swith to active view in Test context
+  shift-2:
+    shortCut: Shift-2
+    description: Test env
+    command: 'ctx arn:aws:eks:us-west-2:925895137947:cluster/platoon-test-cluster'
+  # Swith to active view in UAT context
+  shift-3:
+    shortCut: Shift-3
+    description: UAT env
+    command: 'ctx arn:aws:eks:us-west-2:777093868242:cluster/platoon-uat-cluster'
+  # Swith to active view in Stage context
+  shift-4:
+    shortCut: Shift-4
+    description: Stage env
+    command: 'ctx arn:aws:eks:us-west-2:777093868242:cluster/platoon-stage-cluster'
+  # Swith to active view in Production context
+  shift-5:
+    shortCut: Shift-5
+    description: Production env
+    command: 'ctx arn:aws:eks:us-west-2:379389271710:cluster/platoon-prod-cluster'

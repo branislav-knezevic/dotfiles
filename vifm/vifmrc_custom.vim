@@ -40,8 +40,11 @@ mark h ~
 mark r /
 mark t /tmp
 mark p ~/Projects/
-mark s ~/Projects/git-symphony/Platoon/
-mark d ~/Projects/git-symphony/Platoon/platoon-devops-scripts/
+mark a ~/Projects/apple/
+mark o ~/Projects/apple/ops/
+mark s ~/Projects/apple/p4a/
+mark h ~/Projects/apple/_helper_files/
+mark d ~/Projects/apple/ops/platoon-devops-core
 
 "these are left as mapping as mark only supports one character
 nnoremap gpg :cd ~/Projects/git<cr>

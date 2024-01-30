@@ -1,0 +1,51 @@
+lineage:
+  shortCut: Ctrl-L
+  confirm: false
+  description: 'lineage'
+  scopes:
+    - deploy
+  command: sh
+  background: false
+  args:
+    - -c
+    - 'kubectl lineage deploy $NAME -n $NAMESPACE --context $CONTEXT | less'
+trivy:
+  shortCut: Ctrl-T
+  confirm: false
+  description: 'trivy image'
+  scopes:
+    - container
+  command: sh
+  background: false
+  args:
+    - -c
+    - 'trivy -q image --ignore-unfixed $COL-IMAGE | less'
+sbom:
+  shortCut: Ctrl-S
+  confirm: false
+  description: 'trivy sbom'
+  scopes:
+    - container
+  command: sh
+  background: false
+  args:
+    - -c
+    - 'trivy -q sbom $COL-IMAGE | jq | less'
+config:
+  shortCut: Ctrl-K
+  confirm: false
+  description: 'trivy config'
+  scopes:
+    - deploy
+  command: sh
+  background: false
+  args:
+    - -c
+    - 'kubectl get deploy  $NAME -n $NAMESPACE  -o yaml --context $CONTEXT > $NAME.yaml | (trivy -q config $NAME.yaml && rm $NAME.yaml) | less'
+cosign:
+  shortCut: Ctrl-V
+  confirm: false
+  description: 'cosign'
+  scopes:
+    - container
+  command: sh
