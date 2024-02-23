@@ -1,7 +1,7 @@
 [window]
 dimensions            = { columns = 500, lines = 80 }
 position              = { x = 0, y = 0 }
-opacity               = 0.9
+opacity               = 0.95
 blur                  = false
 option_as_alt         = "Both"
 decorations           = "None"
