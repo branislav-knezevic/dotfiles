@@ -1,7 +1,7 @@
 [window]
 dimensions            = { columns = 500, lines = 80 }
 position              = { x = 0, y = 0 }
-opacity               = 0.95
+# opacity               = 0.95
 blur                  = false
 option_as_alt         = "Both"
 decorations           = "None"
@@ -48,41 +48,10 @@ normal                = { family = "DejaVuSansM Nerd Font Propo", style = "Regul
 bold                  = { family = "DejaVuSansM Nerd Font Propo", style = "Bold" }
 italic                = { family = "DejaVuSansM Nerd Font Propo", style = "Italic" }
 bold_italic           = { family = "DejaVuSansM Nerd Font Propo", style = "Bold Italic" }
-#size                  = 11.25
+size                  = 12
 offset                = { x = 0, y = 0 }
 glyph_offset          = { x = 0, y = 0 }
 #builtin_box_drawing   = true
-
-# Colors (Gruvbox dark)
-# Default colors
-[colors.primary]
-# hard contrast background = = '#1d2021'
-background = '#282828'
-# soft contrast background = = '#32302f'
-foreground = '#ebdbb2'
-
-# Normal colors
-[colors.normal]
-black   = '#282828'
-red     = '#cc241d'
-green   = '#98971a'
-yellow  = '#d79921'
-blue    = '#458588'
-magenta = '#b16286'
-cyan    = '#689d6a'
-white   = '#a89984'
-
-# Bright colors
-[colors.bright]
-black   = '#928374'
-red     = '#fb4934'
-green   = '#b8bb26'
-yellow  = '#fabd2f'
-blue    = '#83a598'
-magenta = '#d3869b'
-cyan    = '#8ec07c'
-white   = '#ebdbb2'
-
 
 [keyboard]
 bindings = [
@@ -108,3 +77,34 @@ bindings = [
 ]
 
 
+# Colors (Gruvbox dark)
+
+# Default colors
+[colors.primary]
+# hard contrast background = = '#1d2021'
+background = '#282828'
+# soft contrast background = = '#32302f'
+foreground = '#ebdbb2'
+
+# Normal colors
+[colors.normal]
+black   = '#282828'
+red     = '#f34236'
+# green   = '#4cae4f'
+green   = '#98971a'
+yellow  = '#d79921'
+blue    = '#458588'
+magenta = '#b16286'
+cyan    = '#689d6a'
+white   = '#a89984'
+
+# Bright colors
+[colors.bright]
+black   = '#928374'
+red     = '#e47272'
+green   = '#b8bb26'
+yellow  = '#fabd2f'
+blue    = '#83a598'
+magenta = '#d3869b'
+cyan    = '#8ec07c'
+white   = '#ebdbb2'
