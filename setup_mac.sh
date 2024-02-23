@@ -83,6 +83,8 @@ check_for_software tmux
 echo
 check_for_software vifm
 echo
+check_for_software alacritty
+echo
 
 check_default_shell
 
@@ -122,6 +124,7 @@ check_for_software the_silver_searcher
 check_for_software bat
 check_for_software fd
 check_for_software ripgrep
+check_for_software hammerspoon
 
 echo "Setting up powerline fonts..."
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -129,7 +132,10 @@ bash fonts/install.sh
 rm -rf fonts
 
 echo "Adding necessary fonts for NERDTree..."
-sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /Library/Fonts/
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+brew install --cask font-dejavu-sans-mono-nerd-font
+# sudo cp custom/fonts/DejaVuSansMono-NerdComplete.ttf /Library/Fonts/
 
 echo "Adding custom "Bungee" zsh theme..."
 cp custom/theme/bungee.zsh-theme zsh/plugins/oh-my-zsh/themes/
