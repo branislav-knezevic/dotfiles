@@ -1,7 +1,8 @@
 local spaces = require("hs.spaces") -- https://github.com/asmagill/hs._asm.spaces
 
 -- Switch alacritty
-hs.hotkey.bind({ "command" }, "`", function()
+-- hs.hotkey.bind({ "command" }, "`", function()
+hs.hotkey.bind({ "command" }, ".", function()
 	local BUNDLE_ID = "org.alacritty" -- more accurate to avoid mismatching on browser titles
 	function moveWindow(alacritty, space, mainScreen)
 		-- move to main space

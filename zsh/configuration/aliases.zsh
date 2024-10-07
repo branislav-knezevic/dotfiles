@@ -16,7 +16,9 @@ alias cdad="cd ~/Projects/apple/ops/platoon-devops-core/"
 alias cdaa="cd ~/Projects/apple/ops/platoon-devops-analytics/"
 alias cdah="cd ~/Projects/apple/_helper_files/"
 alias cda4="cd ~/Projects/apple/p4a/"
+alias p4a="cd ~/Projects/apple/p4a/"
 alias cdao="cd ~/Projects/apple/ops/"
+alias ops="cd ~/Projects/apple/ops/"
 
 # abbrevations for apps 
 alias vimf="vifm"
@@ -62,6 +64,7 @@ alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%
 alias gcorb='gco --track $(git branch -r | fzf)'
 alias gcob='gco $(git branch | fzf)'
 alias lg='lazygit'
+alias gv='git describe --abbrev=0'
 
 # fuzzy commands with fzf
 alias fz="fzf --bind 'f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort' --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500'"

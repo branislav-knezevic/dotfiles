@@ -7,7 +7,7 @@ k9s:
   noExitOnCtrlC: false
   ui:
     skin: gruvbox_dark
-    enableMouse: false
+    enableMouse: true
     headless: false
     logoless: false
     crumbsless: false
